@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@font-face {
+    font-family: 'Noto Sans Lao';
+    src: url(NotoSansLao-Bold.ttf) format('truetype'), url(notosanslao-bold-webfont.woff) format('woff'), url(notosanslao-bold-webfont.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '10B Muc Zeit';
+    src: url(Muc-Zeit-Medium.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: '10B Muc Zeit', 'Noto Sans Lao', 'Phetsarath OT', sans-serif!important;
+}
+
+.main-footer .m-a .mainlink {
+    font-size: 14px;
+    color: #353232;
+    width: 110px;
+    height: 95px;
+    /* padding-top: 32%; */
+    box-shadow: 0px 2px 8px 1px #9f9e9a;
+    display: flex;
+    justify-content: center!important;
+    align-items: center;
+}
+
+.mainlink:hover {
+    color: black;
+    border-color: rgb(207, 205, 202);
+    background-color: rgb(223, 222, 221);
+}
+
+.m-a {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.font14 {
+    font-size: 14px;
+    font-family: "Noto Sans Lao";
+}
+
+.font12 {
+    font-size: 14px;
+    font-family: "Noto Sans Lao";
+}
+
+.clearfix {
+    clear: both;
+}
+
+.toolcolor {
+    color: black;
+}
+
+a:hover {
+    color: red;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+.form {
+    padding: 30px 40px;
+}
+
+.container2 {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    width: 400px;
+    max-width: 100%;
+}
+
+.mergei {
+    visibility: visible;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    margin-right: 5px;
+}
+
+.form-control2 {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control:focus {
+    border-color: blue;
+}
+
+.form-control2 input {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-control2 select {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-control2 textarea {
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-control2 label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.form-control2 i {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    margin-right: 5px;
+    visibility: hidden;
+}
+
+.form-control2 small {
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.form-control2.success input {
+    border-color: #2ecc71;
+}
+
+.form-control2.success textarea {
+    border-color: #2ecc71;
+}
+
+.form-control2.success select {
+    border-color: #2ecc71;
+}
+
+.form-control2.error input {
+    border-color: #e74c3c;
+    width: 100%;
+}
+
+.form-control2.error textarea {
+    border-color: #e74c3c;
+    width: 100%;
+}
+
+.form-control2.error select {
+    border-color: #e74c3c;
+    width: 100%;
+}
+
+.form-control2.success i.fa-check-circle {
+    color: #2ecc71;
+    visibility: visible;
+}
+
+.form-control2.error i.fa-exclamation-circle {
+    color: #e74c3c;
+    visibility: visible;
+}
+
+.form-control2.error small {
+    color: #e74c3c;
+    visibility: visible;
+    left: 10px;
+}
+
+.form-control2.success small {
+    color: #2ecc71;
+    visibility: visible;
+    left: 10px;
+}
+
+
+/* .pagination li a{
+    color:black!important;
+    font-weight: 100!important;
+}
+
+.pagination li button{
+    color:black!important;
+    font-weight: 100!important;
+} */
+
+sup {
+    color: red;
+}
+
+.table-responsive {
+    overflow-y: scroll;
+    /* height:700px; */
+}
+
+.table-responsive2 {
+    overflow-y: scroll;
+    /* height:500px; */
+}
+
+.table-responsive3 {
+    overflow-y: scroll;
+    /* height:450px; */
+}
+
+.table-responsive th {
+    position: sticky!important;
+    top: 0!important;
+    background-color: #066BCA;
+    color: white;
+    border-top: 1px;
+    z-index: 1;
+}
+
+.table-responsive2 th {
+    position: sticky!important;
+    top: 0!important;
+    background-color: #066BCA;
+    color: white;
+    border-top: 1px;
+    z-index: 1;
+}
+
+.table-responsive3 th {
+    position: sticky!important;
+    top: 0!important;
+    background-color: #066BCA;
+    color: white;
+    border-top: 1px;
+    z-index: 1;
+}
+
+.selectcenter {
+    text-align-last: center;
+}
+
+.nav-link {
+    color: #9f9e9a;
+}
+
+.nav-link:hover {
+    color: #353232;
+}
+
+
+/* TEST files ---------------------------------------------------------------------------------------------------------------------------- */
+
+.number-input input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.number-input input[type=number]::-webkit-inner-spin-button,
+.number-input input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.number-input {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.number-input button {
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+}
+
+.number-input button:before,
+.number-input button:after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    height: 2px;
+    transform: translate(-50%, -50%);
+    background-color: red!important;
+}
+
+.number-input button:before,
+.number-input button.plus:after {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    height: 2px;
+    transform: translate(-50%, -50%);
+    background-color: #19EB1C!important;
+}
+
+.number-input button.plus:after {
+    transform: translate(-50%, -50%) rotate(90deg);
+    background-color: #19EB1C!important;
+}
+
+.number-input input[type=number] {
+    text-align: center;
+}
+
+.number-input.number-input {
+    /* border: 1px solid grey; */
+    width: 10rem;
+    border-radius: 25px;
+    background-color: white;
+}
+
+.number-input.number-input button {
+    width: 2.6rem;
+    height: .7rem;
+    border: none;
+    outline: none;
+}
+
+.number-input.number-input button.minus {
+    padding-left: 10px;
+}
+
+.number-input.number-input button:before,
+.number-input.number-input button:after {
+    width: .7rem;
+    background-color: #495057;
+}
+
+.number-input.number-input input[type=number] {
+    max-width: 4rem;
+    padding: .5rem;
+    border: 1px solid white;
+    border-width: 0 1px;
+    font-size: 1rem;
+    height: 2rem;
+    color: #495057;
+}
+
+table th {
+    background-color: #066BCA;
+    color: white;
+}
+
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+        .number-input.def-number-input.safari_only button:before, .number-input.def-number-input.safari_only button:after {
+            margin-top: -.3rem;
+        }
+    }
+}
+
+tr.hide-table-padding td {
+    padding: 0;
+}
+
+.expand-button {
+    position: relative;
+}
+
+.accordion-toggle .expand-button:after {
+    position: absolute;
+    left: .75rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    content: '-';
+}
+
+.accordion-toggle.collapsed .expand-button:after {
+    content: '+';
+}
+
+.table-edit tr:hover {
+    background-color: #2588e4;
+    cursor: pointer;
+    color: white;
+}
+
+.hide_col {
+    display: none !important;
+}
