@@ -1,0 +1,262 @@
+<?php
+  $title = "ຂາຍສິນຄ້າ";
+  $path="../../";
+  $links = "../";
+  $session_path = "../../";
+  include ("../../header-footer/header.php");
+    // $resultTHB = mysqli_query($conn,"select * from rate where rate_id='THB'");
+    // $row_THB = mysqli_fetch_array($resultTHB,MYSQLI_ASSOC);
+    // $THB = $row_THB["rate_buy"];
+    // $resultUSD = mysqli_query($conn,"select * from rate where rate_id='USD'");
+    // $row_USD = mysqli_fetch_array($resultUSD,MYSQLI_ASSOC);
+    // $USD = $row_USD["rate_buy"];
+
+?>
+<div class="container-fluid font12">
+    <div class="row">
+        <div class="col-md-8">
+            <form action="Sell" id="form_sell" method="POST">
+                <div class="input-group">
+                    <input type="text" id="pro_id_sell" name="pro_id_sell" placeholder="ລະຫັດສິນຄ້າ"
+                        class="form-control" autofocus>
+                    <input type="number" min="0" id="qty_sell" name="qty_sell" placeholder="ຈຳນວນ" class="form-control">
+                    <div class="input-group-prepend">
+                        <button type="submit" name="btnAdd_sell" class="btn btn-outline-primary">ເພີ່ມລາຍການ</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <a href="board_sell.php" target="_blank">ລາຍການສິນຄ້າ</a>
+                </div>
+                <div class="col-xs-12 col-sm-6" align="right">
+                    ເລກທີບິນ: <label class="sell_id">99</label>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table" style="width: 980px;">
+                    <tr>
+                        <th style="width: 30px;" scope="col">No.</th>
+                        <th style="width: 57px;" scope="col">ສິນຄ້າ</th>
+                        <th style="width: 120px;" scope="col">ລະຫັດສິນຄ້າ</th>
+                        <th style="width: 120px;" scope="col">ຊື່ສິນຄ້າ</th>
+                        <th style="width: 60px;" scope="col">ຈຳນວນ</th>
+                        <th style="width: 160px;" scope="col">ລາຄາ</th>
+                        <th style="width: 100px;" scope="col">ລວມ</th>
+                        <th style="width: 35px;"></th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <a href="<?php echo $path?>image/img_5f1beac4d3794.jpeg"><img
+                                    src="<?php echo $path?>image/img_5f1beac4d3794.jpeg" alt=" class=" img-circle
+                                    elevation-2 alt="" width="55px"></a>
+                        </td>
+                        <td>0311000101</td>
+                        <td>ຫູຟັງ Fantech HG13 CHIEF ຫູຟັງ Headset & Earphones</td>
+                        <td>1 ກ່ອງ</td>
+                        <td>
+                            <h6 style="color: #CE3131;">ລາຄາ 199,000.00 ກີບ
+                            </h6>
+                            <h7>ລາຄາປົກກະຕິ 300,000.00 ກີບ</h7>
+                            <div style="color: #7E7C7C;font-size: 12px;">ສ່ວນຫຼຸດ
+                                101,000 ກີບ
+                                (33.67 %)</div>
+                        </td>
+                        <td>199,000.00</td>
+                        <td>
+                            <a href="#" data-toggle="modal" data-target="#exampleModalDelete_cookie"
+                                class="fa fa-trash toolcolor btnDelete_cookie"></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <hr size="3" align="center" width="100%">
+        </div>
+        <div class="col-lg-3 font12">
+            <div class="row row-cols-1 row-cols-md-1">
+                <div class="col mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 align="center" class="card-title"></h5>
+                            <p class="card-text">
+                            <form action="Sell" id="form_save" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-12 form-control2">
+                                        <label for="">ສະລິບການໂອນເງິນ</label>
+                                        <input type="file" name="img" id="img" onchange="loadFile(event)">
+                                        <input type="hidden" name="sell_id" id="sell_id">
+                                    </div>
+                                    <div class="col-md-12 form-control2">
+                                        <img src="../../image/camera.jpg" id="output" width="100%" height="120">
+                                    </div>
+                                    <div class="col-md-12" align="center">
+                                        <button type="button" name="btnSale" name="btncontinue" data-toggle="modal"
+                                            data-target="#exampleModalSell" class="btn btn-outline-success">
+                                            ດຳເນີນການຂາຍ
+                                        </button><br>
+                                        <div class="modal fade" id="exampleModalSell" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">ປິດການຂາຍສິນຄ້າ
+                                                        </h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="row" align="left">
+                                                            <div class="col-md-12 form-control2">
+                                                                <label for="">ຈຳນວນຮັບເງິນມາ</label>
+                                                                <input type="text" name="getmoney2"
+                                                                    placeholder="ຈຳນວນຮັບເງິນມາ" id="getmoney2" value=""
+                                                                    autofocus>
+                                                                <input type="hidden" name="getmoney" placeholder=""
+                                                                    id="getmoney" value="">
+                                                                <input type="hidden" name="amount"
+                                                                    value="<?php $amount?>" disabled>
+                                                            </div>
+                                                            <div class="col-md-12 form-control2">
+                                                                <label for="">ມູນຄ່າທັງໝົດ</label>
+                                                                <input type="text" placeholder="ມູນຄ່າທັງໝົດ" value="">
+                                                            </div>
+                                                            <div class="col-md-12 form-control2">
+                                                                <label for="">ເງິນທອນກີບ</label>
+                                                                <input type="text" placeholder="ເງິນທອນກີບ" id="repay"
+                                                                    value="0">
+                                                            </div>
+                                                            <div class="col-md-12 form-control2">
+                                                                <label for="">ບາດ</label>
+                                                                <input type="text" placeholder="ບາດ" id="thb" disabled>
+                                                            </div>
+                                                            <div class="col-md-12 form-control2">
+                                                                <label for="">ໂດລ້າ</label>
+                                                                <input type="text" placeholder="ໂດລ້າ" id="usd"
+                                                                    value="">
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-outline-secondary"
+                                                            data-dismiss="modal">ຍົກເລີກ</button>
+                                                        <button type="submit" name="btn_save" id="btn_save"
+                                                            class="btn btn-outline-success" onclick="">
+                                                            ປິດການຂາຍ
+                                                            <span class="" id="load_save"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr size="3" align="center" width="100%">
+                                    <div class="col-md-12">
+                                        ຍອມລວມ (ລວມພາສີມູນຄ່າເພີ່ມ)
+                                        <h5 style="color: #CE3131;"> 200,000.00 LAK</h5>
+                                        <h5 style="color: #7E7C7C;"> 597.01 THB</h5>
+                                        <h5 style="color: #7E7C7C;"> 16.66 USD</h5>
+                                    </div>
+
+                                </div>
+                            </form>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+    include ("../../header-footer/footer.php");
+    if(isset($_GET['list'])=='null'){
+        echo'<script type="text/javascript">
+        swal("", "ກະລຸນາເພີ່ມລາຍການສັ່ງຊື້ກ່ອນ", "info");
+        </script>';
+    }
+    if(isset($_GET['save'])=='fail'){
+        echo'<script type="text/javascript">
+        swal("", "ບັນທຶກຂໍ້ມູນບໍ່ສຳເລັດ", "error");
+        </script>';
+      }
+      if(isset($_GET['save2'])=='success'){
+        echo'<script type="text/javascript">
+        swal("", "ບັນທຶກຂໍ້ມູນສຳເລັດ", "success");
+        </script>';
+      }
+      if(isset($_GET['product'])=='null'){
+        echo'<script type="text/javascript">
+        swal("", "ລະຫັດສິນຄ້າບໍ່ຖືກຕ້ອງ", "info");
+        </script>';
+      }
+      if(isset($_GET['stock'])=='over'){
+        echo'<script type="text/javascript">
+        swal("", "ຈຳນວນສິນຄ້າເກີນສະຕ໋ອກ", "info");
+        </script>';
+      }
+      if(isset($_GET['stock'])=='over'){
+        $msg = $_GET["msg"];
+        $productid = $_GET["productid"];
+        echo'<script type="text/javascript">
+        swal("", "ບໍ່ສາມາດສັ່ງຊື້ສິນຄ້າໄດ້ ເນື່ອງສິນຄ້າຊື່: '.$productid.' '.$msg.' ທີ່ທ່ານສັ່ງຊື້ເກີນຈຳນວນໃນສະຕ໋ອກ", "info");
+        </script>';
+      }
+  ?>
+<script>
+// $(document).ready(function() {
+//     $("#getmoney2").keyup(function() {
+//         var getmoney = $('#getmoney2').val();
+//         getmoney = getmoney.split(',').join('');
+//         $("#getmoney").val(getmoney);
+//         var repay = getmoney - <?php echo $amount ?>;
+//         $("#repay").val(repay.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " LAK");
+//         if ($("#getmoney2").val() === "" || $("#getmoney2").val() === "0") {
+//             $("#repay").val(0);
+//             $("#thb").val(0);
+//             $("#usd").val(0);
+//         } else {
+//             var thb = repay / <?php echo $THB ?>;
+//             var usd = repay / <?php echo $USD ?>;
+//             $("#thb").val(thb + " THB");
+//             $("#usd").val(usd + " USD");
+//         }
+//         // number keyup format
+//         var val = $('#getmoney2').val();
+//         val = val.replace(/[^0-9\.]/g, '');
+
+//         if (val != "") {
+//             valArr = val.split('.');
+//             valArr[0] = (parseInt(valArr[0], 10)).toLocaleString();
+//             val = valArr.join('.');
+//         }
+
+//         this.value = val;
+//         // End keyup format
+//     });
+
+// });
+</script>
+<script>
+// var myinput = document.getElementById('getmoney');
+
+// myinput.addEventListener('keyup', function() {
+//     var val = this.value;
+//     val = val.replace(/[^0-9\.]/g, '');
+
+//     if (val != "") {
+//         valArr = val.split('.');
+//         valArr[0] = (parseInt(valArr[0], 10)).toLocaleString();
+//         val = valArr.join('.');
+//     }
+
+//     this.value = val;
+// });
+</script>

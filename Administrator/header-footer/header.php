@@ -130,8 +130,8 @@ include (''.$path.'oop/obj.php');
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="<?php echo $path; ?>image/logo.png">
     <title><?php echo $title; ?></title>
+    <link rel="shortcut icon" href="<?php echo $path ?>/image/title_logo.png">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?php echo $path ?>plugins/fontawesome-free/css/all.min.css">
@@ -178,200 +178,6 @@ include (''.$path.'oop/obj.php');
                     <a class="nav-link"><?php echo $title; ?></a>
                 </li>
             </ul>
-
-            <?php 
-            // input text search in header for main data
-                    if ($title == "ຂໍ້ມູນພະນັກງານ"){
-                    echo '<form action="employee" class="form-inline ml-3">
-                    <div class="input-group input-group-sm">
-                      <input class="form-control form-control-navbar" name="search" id="search" type="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                      <div class="input-group-append">
-                        <button class="btn btn-navbar" type="submit">
-                          <i class="fas fa-search"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>';
-                    }
-                    else{ 
-                      echo"";
-                    }
-
-                    if ($title == "ຂໍ້ມູນລູກຄ້າ"){
-                        echo '<form class="form-inline ml-3">
-                        <div class="input-group input-group-sm">
-                          <input class="form-control form-control-navbar" name="search" id="search" type="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                          <div class="input-group-append">
-                            <button class="btn btn-navbar" type="submit">
-                              <i class="fas fa-search"></i>
-                            </button>
-                          </div>
-                        </div>
-                      </form>';
-                        }
-                        else{ 
-                          echo"";
-                        }
-
-                        if ($title == "ຂໍ້ມູນຜູ້ສະໜອງ"){
-                            echo '<form action="supplier" id="formSearch" method="POST" class="form-inline ml-3">
-                            <div class="input-group input-group-sm">
-                              <input class="form-control form-control-navbar" type="text" name="search" id="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                              <div class="input-group-append">
-                                <button class="btn btn-navbar" type="submit">
-                                  <i class="fas fa-search"></i>
-                                </button>
-                              </div>
-                            </div>
-                          </form>';
-                            }
-                            else{ 
-                              echo"";
-                            }
-
-
-                        if ($title == "ຂໍ້ມູນສິນຄ້າ"){
-                                    echo '<form class="form-inline ml-3">
-                                    <div class="input-group input-group-sm">
-                                      <input class="form-control form-control-navbar" type="search"  name="search" id="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                                      <div class="input-group-append">
-                                        <button class="btn btn-navbar" type="submit" name="searchicon">
-                                          <i class="fas fa-search"></i>
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </form>';
-                                    }
-                                    else{ 
-                                      echo"";
-                                    }
-        
-                                        if ($title == "ສ້າງຟອມ"){
-                                            echo '<form class="form-inline ml-3">
-                                            <div class="input-group input-group-sm">
-                                              <input class="form-control form-control-navbar" type="search" name="search" id="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                                              <div class="input-group-append">
-                                                <button class="btn btn-navbar" type="submit" id="btnsearch">
-                                                  <i class="fas fa-search"></i>
-                                                </button>
-                                              </div>
-                                            </div>
-                                          </form>
-
-                                          ';
-                                            }
-                                            // <a href="form?id=check" class="check"> &nbsp&nbsp&nbsp&nbsp ກອດສອບສິນຄ້າ</a>
-                                            else{ 
-                                              echo"";
-                                            }   
-                                            
-                                            if ($title == "ເບີກສິນຄ້າ"){
-                                                echo '<form class="form-inline ml-3">
-                                                <div class="input-group input-group-sm">
-                                                  <input class="form-control form-control-navbar" type="search" name="search" id="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                                                  <div class="input-group-append">
-                                                    <button class="btn btn-navbar" type="submit">
-                                                      <i class="fas fa-search"></i>
-                                                    </button>
-                                                  </div>
-                                                </div>
-                                              </form>
-                                              ';
-                                                }
-                                                else{ 
-                                                  echo"";
-                                                } 
-
-                                                if ($title == "ການອະນຸມັດ"){
-                                                    echo '<form class="form-inline ml-3">
-                                                    <div class="input-group input-group-sm">
-                                                      <input class="form-control form-control-navbar" type="search" name="search" id="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                                                      <div class="input-group-append">
-                                                        <button class="btn btn-navbar" type="submit">
-                                                          <i class="fas fa-search"></i>
-                                                        </button>
-                                                      </div>
-                                                    </div>
-                                                  </form>
-                                                  ';
-                                                    }
-                                                    else{ 
-                                                      echo"";
-                                                    } 
-
-                                                    if ($title == "ລາຍງານສິນຄ້າ"){
-                                                        echo '<form class="form-inline ml-3">
-                                                        <div class="input-group input-group-sm">
-                                                          <input class="form-control form-control-navbar" type="search" name="search" id="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                                                          <div class="input-group-append">
-                                                            <button class="btn btn-navbar" type="submit">
-                                                              <i class="fas fa-search"></i>
-                                                            </button>
-                                                          </div>
-                                                        </div>
-                                                      </form>
-                                                      ';
-                                                        }
-                                                        else{ 
-                                                          echo"";
-                                                        }
-
-                                                        
-                                                    if ($title == "ລາຍງານພະນັກງານ"){
-                                                        echo '<form class="form-inline ml-3">
-                                                        <div class="input-group input-group-sm">
-                                                          <input class="form-control form-control-navbar" type="search" name="search" id="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                                                          <div class="input-group-append">
-                                                            <button class="btn btn-navbar" type="submit">
-                                                              <i class="fas fa-search"></i>
-                                                            </button>
-                                                          </div>
-                                                        </div>
-                                                      </form>
-                                                      ';
-                                                        }
-                                                        else{ 
-                                                          echo"";
-                                                        }
-
-                                                        if ($title == "ລາຍງານລູກຄ້າ"){
-                                                            echo '<form class="form-inline ml-3">
-                                                            <div class="input-group input-group-sm">
-                                                              <input class="form-control form-control-navbar" type="search" name="search" id="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                                                              <div class="input-group-append">
-                                                                <button class="btn btn-navbar" type="submit">
-                                                                  <i class="fas fa-search"></i>
-                                                                </button>
-                                                              </div>
-                                                            </div>
-                                                          </form>
-                                                          ';
-                                                            }
-                                                            else{ 
-                                                              echo"";
-                                                            }
-
-                                                            if ($title == "ລາຍງານຜູ້ສະໜອງ"){
-                                                                echo '<form class="form-inline ml-3">
-                                                                <div class="input-group input-group-sm">
-                                                                  <input class="form-control form-control-navbar" type="search" name="search" id="search" placeholder="ຄົ້ນຫາ" aria-label="Search">
-                                                                  <div class="input-group-append">
-                                                                    <button class="btn btn-navbar" type="submit">
-                                                                      <i class="fas fa-search"></i>
-                                                                    </button>
-                                                                  </div>
-                                                                </div>
-                                                              </form>
-                                                              ';
-                                                                }
-                                                                else{ 
-                                                                  echo"";
-                                                                }
-
-
-
-
-    ?>
         </nav>
 
         <!-- Main Sidebar Container -->
@@ -407,34 +213,123 @@ include (''.$path.'oop/obj.php');
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Management/auther" class="nav-link">
-                                        <i class="fas fa-network-wired nav-icon"></i>
-                                        <p>ຂໍ້ມູນຕຳແໜ່ງ</p>
+                                    <a href="<?php echo $links ?>Management/Employee" class="nav-link">
+                                        <i class="far fa fa-user nav-icon"></i>
+                                        <p>ຈັດການຂໍ້ມູນພະນັງານ</p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Management/employee" class="nav-link">
-                                        <i class="far fa fa-user nav-icon"></i>
-                                        <p>ຂໍ້ມູນພະນັງານ</p>
+                                    <a href="<?php echo $links ?>Management/Supplier" class="nav-link">
+                                        <i class="far fa fa-people-carry nav-icon"></i>
+                                        <p>ຈັດການຂໍ້ມູນຜູ້ສະໜອງ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Management/Type" class="nav-link">
+                                        <i class="fab fa-typo3 nav-icon"></i>
+                                        <p>ຈັດການຂໍ້ມູນໝວດໝູ່ສິນຄ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Management/Category" class="nav-link">
+                                        <i class="fab fa-typo3 nav-icon"></i>
+                                        <p>ຈັດການຂໍ້ມູນປະເພດສິນຄ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Management/Unit" class="nav-link">
+                                        <i class="fab fa-unity nav-icon"></i>
+                                        <p>ຈັດການຂໍ້ມູນຫົວໜ່ວຍສິນຄ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Management/Brand" class="nav-link">
+                                        <i class="fab fa-buy-n-large nav-icon"></i>
+                                        <p>ຈັດການຂໍ້ມູນຍີ່ຫໍ້ສິນຄ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Management/Product" class="nav-link">
+                                        <i class="fab fa-product-hunt nav-icon"></i>
+                                        <p>ຈັດການຂໍ້ມູນສິນຄ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Management/Rate" class="nav-link">
+                                        <i class="fab fa-acquisitions-incorporated nav-icon"></i>
+                                        <p>ຈັດການຂໍ້ມູນອັດຕາແລກປ່ຽນ</p>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="" class="nav-link">
-                                <i class="fab fa-product-hunt nav-icon"></i>
+                              <i class="fas fa-shopping-cart nav-icon"></i>
                                 <p>
-                                    ສ້າງຟອມ ແລະ ເບີກຈ່າຍສິນຄ້າ
+                                    ສັ່ງຊື້ ແລະ ນຳເຂົ້າ
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Form/accept" class="nav-link">
+                                    <a href="<?php echo $links ?>Order/Order" class="nav-link">
+                                        <i class="fas fa-shopping-cart nav-icon"></i>
+                                        <p>ສັ່ງຊື້ສິນຄ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Order/Acception" class="nav-link">
                                         <i class="fas fa-vote-yea nav-icon"></i>
-                                        <p>ອະນຸມັດຟອມເບີກສິນຄ້າ</p>
+                                        <p>ການອະນຸມັດ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Order/Import" class="nav-link">
+                                        <i class="fas fa-truck nav-icon"></i>
+                                        <p>ນຳເຂົ້າສິນຄ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="" class="nav-link">
+                                <i class="fas fa-cash-register nav-icon"></i>
+                                <p>
+                                    ບໍລິການ
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Service/Online" class="nav-link">
+                                        <i class="fas fa-shopping-bag nav-icon"></i>
+                                        <p>ຢືນຢັນການສັ່ງຊື້ອອນລາຍ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Service/Sell" class="nav-link">
+                                        <i class="fas fa-tv nav-icon"></i>
+                                        <p>ຂາຍສິນຄ້າໜ້າຮ້ານ</p>
                                     </a>
                                 </li>
                             </ul>
@@ -449,73 +344,73 @@ include (''.$path.'oop/obj.php');
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Report/report-employee" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/report-employee" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
-                                        <p>ລາຍງານຂໍ້ມູນພະນັກງານ</p>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນພະນັກງານ</p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Report/report-customer" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/report-customer" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
-                                        <p>ລາຍງານຂໍ້ມູນລູກຄ້າ</p>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນລູກຄ້າ</p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Report/report-supplier" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/report-supplier" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
-                                        <p>ລາຍງານຂໍ້ມູນຜູ້ສະໜອງ</p>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນສິນຄ້າ</p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Report/report-product" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
-                                        <p>ລາຍງານຂໍ້ມູນສິນຄ້າ</p>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນການສັ່ງຊື້</p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Report/report-stock" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
-                                        <p>ລາຍງານຂໍ້ມູນສະຕ໋ອກສິນຄ້າ</p>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນການນຳເຂົ້າ</p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Report/report-check-stock" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
-                                        <p>ລາຍງານຂໍ້ມູນການນັບສະຕ໋ອກ</p>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນການຂາຍ</p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Report/report-warehouse" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
-                                        <p>ລາຍງານຂໍ້ມູນສາງເກັບຮັກສາ</p>
+                                        <p>ສ້າງລາຍງານສິນຄ້າຂາຍດີ</p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Report/report-distribute" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
-                                        <p>ລາຍງານຂໍ້ມູນການເບີກຈ່າຍສິນຄ້າ</p>
+                                        <p>ພິມໃບບິນການຂາຍ</p>
                                     </a>
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="'.$links.'Report/report-product-putback" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
-                                        <p>ລາຍງານສິນຄ້າເບີກແລ້ວເກັບເຂົ້າສາງ</p>
+                                        <p>ພິມໃບບິນການສັ່ງຊື້</p>
                                     </a>
                                 </li>
                             </ul>

@@ -1,0 +1,246 @@
+<?php
+  $title = "ຈັດການຂໍ້ມູນຜູ້ສະໜອງ";
+  $path = "../../";
+  $links = "../";
+  $session_path = "../../";
+  include (''.$path.'header-footer/header.php');
+?>
+<div style="text-align: right;">
+    <a href="#" align="right" data-toggle="modal" data-target="#exampleModalInsertEmp">
+        <img src="<?php echo $path ?>/icon/add.ico" alt="" width="30px">
+    </a>
+</div>
+<form action="Username" method="POST" id="formSaveEmp" enctype="multipart/form-data" class="row g-3 needs-validation"
+    novalidate>
+    <div class="modal fade" id="exampleModalInsertEmp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ເພີ່ມຂໍ້ມູນຜູ້ສະໜອງ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" align="left">
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ບໍລິສັດ</label>
+                            <input type="text" class="form-control" name="emp_id" id="emp_id" value=""
+                                placeholder="ບໍລິສັດ" required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນຊື່ບໍລິສັດ
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ເບີໂທລະສັບ</label>
+                            <input type="text" class="form-control" name="emp_name" id="emp_name" value=""
+                                placeholder="ເບີໂທລະສັບ" required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນເບີໂທລະສັບ
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>ເບີແຟັກ</label>
+                            <input type="text" class="form-control" name="surname" id="surname" value=""
+                                placeholder="ເບີແຟັກ">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ທີ່ຢູ່ປັດຈຸບັນ</label>
+                            <textarea class="form-control" name="address" id="address" cols="30" rows="5"
+                                placeholder="ທີ່ຢູ່ປັດຈຸບັນ" required></textarea>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນທີ່ຢູ່ປັດຈຸບັນ
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ອີເມວ</label>
+                            <input type="type" class="form-control" name="email" id="email" value="" placeholder="ອີເມວ"
+                                required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນຊື່ອີເມວ
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ຍົກເລີກ</button>
+                    <button type="submit" name="btn_loadSave" id="btn_loadSave" class="btn btn-outline-primary"
+                        onclick="">
+                        ເພີ່ມຂໍ້ມູນ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<form action="Employee" method="POST" id="formUpdate" enctype="multipart/form-data" class="row g-3 needs-validation"
+    novalidate>
+    <div class="modal fade" id="exampleModalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ແກ້ໄຂຂໍ້ມູນຜູ້ສະໜອງ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" align="left">
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ບໍລິສັດ</label>
+                            <input type="text" class="form-control" name="emp_id" id="emp_id" value=""
+                                placeholder="ບໍລິສັດ" required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນຊື່ບໍລິສັດ
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ເບີໂທລະສັບ</label>
+                            <input type="text" class="form-control" name="emp_name" id="emp_name" value=""
+                                placeholder="ເບີໂທລະສັບ" required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນເບີໂທລະສັບ
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label>ເບີແຟັກ</label>
+                            <input type="text" class="form-control" name="surname" id="surname" value=""
+                                placeholder="ເບີແຟັກ">
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ທີ່ຢູ່ປັດຈຸບັນ</label>
+                            <textarea class="form-control" name="address" id="address" cols="30" rows="5"
+                                placeholder="ທີ່ຢູ່ປັດຈຸບັນ" required></textarea>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນທີ່ຢູ່ປັດຈຸບັນ
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ອີເມວ</label>
+                            <input type="type" class="form-control" name="email" id="email" value="" placeholder="ອີເມວ"
+                                required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນຊື່ອີເມວ
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ຍົກເລີກ</button>
+                    <button type="submit" name="btn_loadSave" id="btn_loadSave" class="btn btn-outline-success"
+                        onclick="">
+                        ແກ້ໄຂຂໍ້ມູນ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="table-responsive">
+    <div id="toolbar">
+        <div class="input-group mb-3">
+            <!-- 
+            <input type="text" class="form-control" id="inCus" placeholder="ຄົ້ນຫາ ຊື່ ແລະ ນາມສະກຸນ"
+                aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-success" type="button"><i class="fas fa-search"></i></button>
+            </div>
+            &nbsp; &nbsp; -->
+            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalDelete"><i
+                    class="fa fa-trash"></i> ລົບ</button>
+        </div>
+    </div>
+
+    <table id="table" data-pagination="true" data-search="true" data-toolbar="#toolbar" data-advanced-search="true"
+        data-click-to-select="true" data-id-table="advancedTable" data-show-columns="true" data-resizable="true"
+        data-id-field="name" data-page-list="[10, 25, 50, 100, all]" data-search-highlight="true"
+        style="width: 1600px;">
+        <thead>
+            <tr>
+                <th data-field="state" data-checkbox="true"></th>
+                <th style="width: 50px;">ເຄື່ອງມື</th>
+                <th>No.</th>
+                <th data-field="id" data-sortable="true">ລະຫັດ</th>
+                <th data-field="name" data-sortable="true">ຊື່ບໍລິສັດ</th>
+                <th data-field="tel" data-sortable="true">ເບີໂທລະສັບ</th>
+                <th data-field="address" data-sortable="true">ທີ່ຢູ່ປັດຈຸບັນ</th>
+                <th data-field="email" data-sortable="true">ທີ່ຢູ່ອີເມວ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td>
+                    <a href="#" data-toggle="modal" data-target="#exampleModalUpdate"
+                        class="fa fa-pen toolcolor btnUpdate_emp"></a>&nbsp; &nbsp;
+                </td>
+                <td>1</td>
+                <td>1</td>
+                <td>JIRO Computer</td>
+                <td>020 5583 2233</td>
+                <td>ບ້ານ ດອນດອຍ ເມືອງສີສັດຕະນາກ ນະຄອນຫຼວງວຽງຈັນ</td>
+                <td>nopphalat@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<form action="employee" id="formDelete" method="POST" enctype="multipart/form-data">
+    <div class="modal fade" id="exampleModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ຢືນຢັນການລົບຂໍ້ມູນ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" align="center">
+                    <input type="hidden" name="id" id="id">
+                    ທ່ານຕ້ອງການລົບຂໍ້ມູນ ຫຼື ບໍ່ ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ຍົກເລີກ</button>
+                    <button type="submit" name="btnDelete" id="btnDelete" class="btn btn-outline-danger ">
+                        ລົບ
+                        <span class="" id="load_delete"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+<?php
+ include (''.$path.'header-footer/footer.php');
+?>
+<script>
+$(function() {
+    $('#table').bootstrapTable();
+});
+</script>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+})()
+</script>

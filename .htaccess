@@ -1,0 +1,47 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+#RewriteRule ^([^\.]+)$ $1.php [Nc,L]
+#RewriteRule ^([^\.]+)$ $1.html [Nc,L]
+#RewriteRule ^([^\.]+)$ $1.js [Nc,L]
+#RewriteRule ^([^\.]+)$ $1.css [Nc,L]
+#ErrorDocument 400 /health_checkup/404/error.php
+#ErrorDocument 401 /health_checkup/404/error.php
+#ErrorDocument 403 /health_checkup/404/error.php
+ErrorDocument 404 /health_checkup/404/error.php
+#ErrorDocument 500 /health_checkup/404/error.php
+#ErrorDocument 502 /health_checkup/404/error.php
+#ErrorDocument 400 http://localhost/health_checkup/404/404
+#ErrorDocument 401 http://localhost/health_checkup/404/404
+#ErrorDocument 403 http://localhost/health_checkup/404/404
+#ErrorDocument 404 http://localhost/health_checkup/404/404
+#ErrorDocument 500 http://localhost/health_checkup/404/404
+#ErrorDocument 502 http://localhost/health_checkup/404/404
+
+
+RewriteRule ^/?$ index.php
+RewriteRule ^index?$ index.php
+RewriteRule ^User/Main?$ User/Main.php
+
+RewriteRule ^Administrator/User/Main?$ Administrator/User/Main.php
+RewriteRule ^Administrator/User/Management/Employee?$ Administrator/User/Management/employee.php
+RewriteRule ^Administrator/User/Management/Supplier?$ Administrator/User/Management/supplier.php
+RewriteRule ^Administrator/User/Management/Type?$ Administrator/User/Management/type.php
+RewriteRule ^Administrator/User/Management/Category?$ Administrator/User/Management/category.php
+RewriteRule ^Administrator/User/Management/Unit?$ Administrator/User/Management/unit.php
+RewriteRule ^Administrator/User/Management/Brand?$ Administrator/User/Management/brand.php
+RewriteRule ^Administrator/User/Management/Product?$ Administrator/User/Management/product.php
+RewriteRule ^Administrator/User/Management/Rate?$ Administrator/User/Management/rate.php
+RewriteRule ^Administrator/User/Order/Order?$ Administrator/User/Order/order.php
+RewriteRule ^Administrator/User/Order/Import?$ Administrator/User/Order/import.php
+RewriteRule ^Administrator/User/Service/Online?$ Administrator/User/Service/online.php
+RewriteRule ^Administrator/User/Service/Sell?$ Administrator/User/Service/sell.php
+
+
+
+
+
+
+
+
