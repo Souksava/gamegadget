@@ -155,7 +155,7 @@ window.onload = function() {
             indexLabelFontFamily: "Noto Sans Lao",
             dataPoints: [
                 <?php 
-                    $result_revenue = mysqli_query($conn,"select date_format(sell_date,'%M') as month,sum(amount) as amount from sell where year(sell_date) = date_format(now(),'%Y') group by month(sell_date);");
+                    $result_revenue = mysqli_query($conn,"call total_revenue()");
                     foreach($result_revenue as $rowr){
                     // if($rowr["month"] == "January"){
                     //     $rowr["month"] = "ມັງກອນ";
@@ -166,6 +166,8 @@ window.onload = function() {
                 },
                 <?php
                     }
+                    mysqli_free_result($result_revenue);  
+                    mysqli_next_result($conn);
                 ?>
             ]
         }]
@@ -176,7 +178,7 @@ window.onload = function() {
         animationEnabled: true,
         theme: "light2", // "light1", "light2", "dark1", "dark2"
         title: {
-            text: "ລາຍຮັບໃນແຕ່ລະປີ",
+            text: "ລາຍຈ່າຍຕໍ່ເດືອນ",
             fontFamily: "Noto Sans Lao",
         },
         axisX: {
@@ -197,7 +199,7 @@ window.onload = function() {
             dataPoints: [
                 <?php 
                     //$result_pay = mysqli_query($conn,"select date_format(imp_date,'%M') as month,sum(qty*price) as amount from imports where year(imp_date) = date_format(now(),'%Y') group by month(imp_date);");
-                    $result_pay = mysqli_query($conn,"select date_format(imp_date,'%M') as month,sum(qty*price) as amount from imports group by month(imp_date);");
+                    $result_pay = mysqli_query($conn,"call total_pay()");
                     foreach($result_pay as $rowp){
                     if($rowp["month"] == ""){
                         $rowp["month"] = "None";
@@ -211,6 +213,8 @@ window.onload = function() {
                 },
                 <?php
                     }
+                    mysqli_free_result($result_pay);  
+                    mysqli_next_result($conn);
                 ?>
             ]
         }]
@@ -219,28 +223,29 @@ window.onload = function() {
 
     var chart3 = new CanvasJS.Chart("chartContainer3", {
         animationEnabled: true,
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
         title: {
             text: "ລາຍຮັບແຕ່ລະປີ",
             fontFamily: "Noto Sans Lao",
         },
-        axisY: {
-            valueFormatString: "#0,,.",
-            suffix: " ລ້ານ",
+        axisX: {
             labelFontFamily: "Noto Sans Lao",
-
+        },
+        axisY: {
+            labelFontFamily: "Noto Sans Lao",
         },
         toolTip: {
             fontFamily: "Noto Sans Lao",
         },
+        legend: {
+            fontFamily: "Noto Sans Lao",
+        },
         data: [{
-            type: "splineArea",
-            color: "rgba(54,158,173,.7)",
-            markerSize: 5,
-            xValueFormatString: "YYYY",
-            yValueFormatString: "#,##0.## ກີບ",
+            type: "column",
+            toolTipContent: "{y} ກີບ",
             dataPoints: [
                 <?php 
-                    $result_revenue_year = mysqli_query($conn,"select date_format(sell_date,'%Y') as year,sum(amount) as amount from sell group by year(sell_date)");
+                    $result_revenue_year = mysqli_query($conn,"call total_revenue_year()");
                     foreach($result_revenue_year as $rowrevenue_year){
                 ?> {
                     x: new Date(<?php echo $rowrevenue_year["year"] ?>, 0),
@@ -248,6 +253,8 @@ window.onload = function() {
                 },
                 <?php
                    }
+                   mysqli_free_result($result_revenue_year);  
+                   mysqli_next_result($conn);
                 ?>
             ]
         }]
@@ -256,35 +263,41 @@ window.onload = function() {
 
     var chart4 = new CanvasJS.Chart("chartContainer4", {
         animationEnabled: true,
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
         title: {
             text: "ລາຍຈ່າຍແຕ່ລະປີ",
             fontFamily: "Noto Sans Lao",
         },
-        axisY: {
-            valueFormatString: "#0,,.",
-            suffix: " ລ້ານ",
+        axisX: {
             labelFontFamily: "Noto Sans Lao",
-
+        },
+        axisY: {
+            labelFontFamily: "Noto Sans Lao",
         },
         toolTip: {
             fontFamily: "Noto Sans Lao",
         },
+        legend: {
+            fontFamily: "Noto Sans Lao",
+        },
         data: [{
-            type: "splineArea",
+            type: "column",
             color: "rgba(255, 99, 71)",
             markerSize: 5,
             xValueFormatString: "YYYY",
             yValueFormatString: "#,##0.## ກີບ",
             dataPoints: [
                 <?php 
-                $result_revenue_year = mysqli_query($conn,"select date_format(imp_date,'%Y') as year,sum(qty*price) as amount from imports group by year(imp_date);");
-                foreach($result_revenue_year as $rowrevenue_year){
+                $result_pay_year = mysqli_query($conn,"call total_pay_year();");
+                foreach($result_pay_year as $rowrpay_year){
             ?> {
-                    x: new Date(<?php echo $rowrevenue_year["year"] ?>, 0),
-                    y: <?php echo $rowrevenue_year["amount"] ?>
+                    x: new Date(<?php echo $rowrpay_year["year"] ?>, 0),
+                    y: <?php echo $rowrpay_year["amount"] ?>
                 },
                 <?php
                }
+               mysqli_free_result($result_pay_year);  
+               mysqli_next_result($conn);
             ?>
             ]
         }]

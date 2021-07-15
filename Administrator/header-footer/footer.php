@@ -14,45 +14,7 @@
 <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<script type="text/javascript">
-<?php
-if($stt == 1){
-?>
-    function loadDocalert() {
-            setInterval(function(){
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("alert_mananger").innerHTML = this.responseText;
-                    }
-                };
-                xhttp.open("GET", "<?php echo $path ?>header-footer/alert_manager.php", true);
-                xhttp.send();
-            },1000);
-        }
-        loadDocalert(); 
-<?php
-}
-if($stt == 2){
-?>
-  function loadDocalert2() {
-            setInterval(function(){
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("alert_user").innerHTML = this.responseText;
-                    }
-                };
-                xhttp.open("GET", "<?php echo $path ?>header-footer/alert_user.php", true);
-                xhttp.send();
-            },1000);
-        }
-        loadDocalert2(); 
-<?php
-}
-?>
-       
-</script>
+
 <!-- jQuery -->
 <script src="<?php echo $path ?>plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

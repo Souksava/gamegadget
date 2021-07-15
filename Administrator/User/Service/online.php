@@ -68,8 +68,8 @@ tr {
                                 <div class="card-body">
                                     <div align="center">
                                         <a href="../../image/image.jpeg">
-                                            <img src="../../image/image.jpeg"
-                                                class="img-circle elevation-2" alt="" width="120px" />
+                                            <img src="../../image/image.jpeg" class="img-circle elevation-2" alt=""
+                                                width="120px" />
                                         </a>
                                     </div>
                                     <div>
@@ -80,13 +80,13 @@ tr {
                                         </p>
                                         <p>
                                         <h3>ສະຖານທີຈັດສົ່ງ</h3>
-                                         ບ້ານ ດອນໜູນ ເມືອງໄຊທານີ ນະຄອນຫຼວງວຽງຈັນ
+                                        ບ້ານ ດອນໜູນ ເມືອງໄຊທານີ ນະຄອນຫຼວງວຽງຈັນ
                                         </p>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 form-group">
-                                        <label for="">ຄ່າສົ່ງ</label>
-                                        <input type="text" class="form-control" placeholder="ຄ່າສົ່ງ">
+                                            <label for="">ຄ່າສົ່ງ</label>
+                                            <input type="text" class="form-control" placeholder="ຄ່າສົ່ງ">
                                         </div>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@ tr {
                 </tr>
             </thead>
             <tbody>
-                <tr class="btn_fetch">
+                <tr id="btn_fetch" data-toggle="modal" data-target="#exampleModalfetch">
                     <td>1</td>
                     <td>79</td>
                     <td>ນົບພະລັກ</td>
@@ -156,7 +156,7 @@ $(function() {
 </script>
 <script>
 $(document).ready(function() {
-    $('.btn_fetch').on('click', function() {
+    $('#btn_fetch').on('click', function() {
         $('#exampleModalfetch').modal('show');
         $tr = $(this).closest('tr');
         var data = $tr.children("td").map(function() {

@@ -1,5 +1,5 @@
 <?php
-  $title = "ຈັດການຂໍ້ມູນຍີ່ຫໍ້ສິນຄ້າ";
+  $title = "ຈັດການຂໍ້ມູນອັດຕາແລກປ່ຽນ";
   $path = "../../";
   $links = "../";
   $session_path = "../../";
@@ -10,14 +10,14 @@
         <img src="<?php echo $path ?>/icon/add.ico" alt="" width="30px">
     </a>
 </div>
-<form action="Username" method="POST" id="formSaveEmp" enctype="multipart/form-data" class="row g-3 needs-validation"
+<form action="Rate" method="POST" id="formSaveEmp" enctype="multipart/form-data" class="row g-3 needs-validation"
     novalidate>
     <div class="modal fade" id="exampleModalInsertEmp" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ເພີ່ມຂໍ້ມູນຍີ່ຫໍ້ສິນຄ້າ</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">ເພີ່ມຂໍ້ມູນ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -25,18 +25,34 @@
                 <div class="modal-body">
                     <div class="row" align="left">
                         <div class="col-md-12 form-group">
-                            <label for="" class="">ຊື່ຍີ່ຫໍ້ສິນຄ້າ</label>
-                            <input type="text" class="form-control" name="emp_id" id="emp_id" value=""
+                            <label for="" class="">ສະກຸນເງິນ</label>
+                            <input type="text" class="form-control" name="rate_id" id="rate_name" value=""
+                                placeholder="ສະກຸນເງິນ" required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນຊື່ສະກຸນເງິນ
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ເລດຊື້</label>
+                            <input type="text" class="form-control" name="rate_buy" id="rate_buy" value=""
+                                placeholder="ເລດຊື້" required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນເລດຊື້
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ເລດຂາຍ</label>
+                            <input type="text" class="form-control" name="rate_sell" id="rate_sell" value=""
                                 placeholder="ຊື່ຍີ່ຫໍ້ສິນຄ້າ" required>
                             <div class="invalid-feedback">
-                                ກະລຸນາປ້ອນຊື່ຍີ່ຫໍ້ສິນຄ້າ
+                                ກະລຸນາປ້ອນເລດຂາຍ
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ຍົກເລີກ</button>
-                    <button type="submit" name="btn_loadSave" id="btn_loadSave" class="btn btn-outline-primary"
+                    <button type="submit" name="btnSave" id="btnSave" class="btn btn-outline-primary"
                         onclick="">
                         ເພີ່ມຂໍ້ມູນ
                     </button>
@@ -45,14 +61,14 @@
         </div>
     </div>
 </form>
-<form action="Employee" method="POST" id="formUpdate" enctype="multipart/form-data" class="row g-3 needs-validation"
+<form action="Rate" method="POST" id="formUpdate" enctype="multipart/form-data" class="row g-3 needs-validation"
     novalidate>
     <div class="modal fade" id="exampleModalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ແກ້ໄຂຂໍ້ມູນຍີ່ຫໍ້</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">ແກ້ໄຂຂໍ້ມູນ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -60,18 +76,26 @@
                 <div class="modal-body">
                     <div class="row" align="left">
                         <div class="col-md-12 form-group">
-                            <label for="" class="">ຊື່ຍີ່ຫໍ້ສິນຄ້າ</label>
-                            <input type="text" class="form-control" name="emp_id" id="emp_id" value=""
-                                placeholder="ຊື່ຍີ່ຫໍ້ສິນຄ້າ" required>
+                            <label for="" class="">ເລດຊື້</label>
+                            <input type="hidden" class="form-control" name="rate_id_update" id="rate_id_update" value="">
+                            <input type="text" class="form-control" name="rate_buy_update" id="rate_buy_update" value="" placeholder="ເລດຊື້">
                             <div class="invalid-feedback">
-                                ກະລຸນາປ້ອນຊື່ຍີ່ຫໍ້ສິນຄ້າ
+                                ກະລຸນາປ້ອນເລດຊື້
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-group">
+                            <label for="" class="">ເລດຂາຍ</label>
+                            <input type="text" class="form-control" name="rate_sell_update" id="rate_sell_update" value=""
+                                placeholder="ເລດຂາຍ" required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນເລດຂາຍ
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ຍົກເລີກ</button>
-                    <button type="submit" name="btn_loadSave" id="btn_loadSave" class="btn btn-outline-success"
+                    <button type="submit" name="btnUpdate" id="btnUpdate" class="btn btn-outline-success"
                         onclick="">
                         ແກ້ໄຂຂໍ້ມູນ
                     </button>
@@ -80,68 +104,56 @@
         </div>
     </div>
 </form>
-
+<form action="Rate" id="formDelete" method="POST" enctype="multipart/form-data">
 <div class="table-responsive">
     <div id="toolbar">
         <div class="input-group mb-3">
-            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalDelete">
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalDelete">
                 <i class="fa fa-trash"></i> ລົບ</button>
         </div>
     </div>
 
     <table id="table" data-pagination="true" data-search="true" data-toolbar="#toolbar" data-advanced-search="true"
         data-click-to-select="true" data-id-table="advancedTable" data-show-columns="true" data-resizable="true"
-        data-id-field="name" data-page-list="[10, 25, 50, 100, all]" data-search-highlight="true"
+        data-id-field="id" data-page-list="[10, 25, 50, 100, all]" data-search-highlight="true"
         style="width: 1000px;">
         <thead>
             <tr>
                 <th data-field="state" data-checkbox="true"></th>
                 <th style="width: 50px;text-align: center;">ເຄື່ອງມື</th>
                 <th>No.</th>
-                <th data-field="id" data-sortable="true">Rate</th>
+                <th data-field="id" data-sortable="true">ສະກຸນເງິນ</th>
                 <th data-field="buy" data-sortable="true">ຊື້</th>
                 <th data-field="sell" data-sortable="true">ຂາຍ</th>
 
             </tr>
         </thead>
         <tbody>
+            <?php
+                $no_ = 0;
+                $select_rate = mysqli_query($conn,"call select_rate()");
+                foreach($select_rate as $row){
+                $no_ ++;
+            ?>
             <tr>
                 <td></td>
-                <td style="width: 50px;text-align: center;">
-                    <a href="#" data-toggle="modal" data-target="#exampleModalUpdate"
-                        class="fa fa-pen toolcolor btnUpdate_emp"></a>&nbsp; &nbsp;
+                <td class="icon-center">
+                    <a href="#" class="fa fa-pen toolcolor btnUpdate_emp" onclick="modal_update()"></a>&nbsp; &nbsp;
                 </td>
-                <td>1</td>
-                <td>LAK</td>
-                <td>1</td>
-                <td>1</td>
+                <td><?php echo $no_; ?></td>
+                <td><?php echo $row["rate_id"]; ?></td>
+                <td><?php echo $row["rate_buy"]; ?></td>
+                <td><?php echo $row["rate_sell"]; ?></td>
             </tr>
-            <tr>
-                <td></td>
-                <td style="width: 50px;text-align: center;">
-                    <a href="#" data-toggle="modal" data-target="#exampleModalUpdate"
-                        class="fa fa-pen toolcolor btnUpdate_emp"></a>&nbsp; &nbsp;
-                </td>
-                <td>2</td>
-                <td>THB</td>
-                <td>335</td>
-                <td>337</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td style="width: 50px;text-align: center;">
-                    <a href="#" data-toggle="modal" data-target="#exampleModalUpdate"
-                        class="fa fa-pen toolcolor btnUpdate_emp"></a>&nbsp; &nbsp;
-                </td>
-                <td>3</td>
-                <td>USD</td>
-                <td>10,200</td>
-                <td>10,300</td>
-            </tr>
+            <?php
+                }
+                mysqli_free_result($select_rate);  
+                mysqli_next_result($conn);
+            ?>
         </tbody>
     </table>
 </div>
-<form action="employee" id="formDelete" method="POST" enctype="multipart/form-data">
+
     <div class="modal fade" id="exampleModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -170,6 +182,128 @@
 </div>
 <?php
  include (''.$path.'header-footer/footer.php');
+ if(isset($_POST["btnSave"])){
+     $rate_id = $_POST["rate_id"];
+     $rate_buy = $_POST["rate_buy"];
+     $rate_sell = $_POST["rate_sell"];
+     $check_rate = mysqli_query($conn,"select * from rate where rate_id='$rate_id'");
+     if(mysqli_num_rows($check_rate) > 0){
+        echo"<script>";
+        echo"window.location.href='Rate?rate=same';";
+        echo"</script>";
+     }
+     else{
+         $resultRate = mysqli_query($conn,"insert into rate values('$rate_id','$rate_buy','$rate_sell');");
+         if(!$resultRate){
+            echo"<script>";
+            echo"window.location.href='Rate?save=fail';";
+            echo"</script>";
+         }
+         else{
+            echo"<script>";
+            echo"window.location.href='Rate?save2=success';";
+            echo"</script>";
+         }
+     }
+
+ }
+ if(isset($_POST["btnUpdate"])){
+    $rate_id_update = $_POST["rate_id_update"];
+    $rate_buy_update = $_POST["rate_buy_update"];
+    $rate_sell_update = $_POST["rate_sell_update"];
+    $resultupdate = mysqli_query($conn,"update rate set rate_buy='$rate_buy_update',rate_sell='$rate_sell_update' where rate_id='$rate_id_update'");
+    if(!$resultupdate){
+        echo"<script>";
+        echo"window.location.href='Rate?update=fail';";
+        echo"</script>";
+    }
+    else{
+        echo"<script>";
+        echo"window.location.href='Rate?update2=success';";
+        echo"</script>";
+    }
+
+ }
+
+ if(isset($_POST["btnDelete"])){
+    $logic = 0;
+        if(isset($_POST["btSelectItem"])){
+            foreach($_POST["btSelectItem"] as $checkid){
+                if($checkid == 'LAK' || $checkid == 'THB' || $checkid == 'USD'){
+                    $logic = 1;
+                    echo"<script>";
+                    echo"window.location.href='Rate?rate=found';";
+                    echo"</script>";
+                    break;
+                }
+            }
+            if($logic == 0){
+                $delete = 0;
+                foreach($_POST["btSelectItem"] as $id){
+                    $delete_many = mysqli_query($conn,"call delete_rate('$id')");
+                    if(!$delete_many){
+                        $delete = 1;
+                        echo"<script>";
+                        echo"window.location.href='Rate?del=fail';";
+                        echo"</script>";
+                    }
+                    mysqli_free_result($delete_many);  
+                    mysqli_next_result($conn);
+                }
+                if($delete == 0){
+                    echo"<script>";
+                    echo"window.location.href='Rate?del2=success';";
+                    echo"</script>";
+                }
+                
+            }
+        }
+        else{
+            echo"<script>";
+            echo"window.location.href='Rate?Checkbox=null';";
+            echo"</script>";
+        }
+}
+ if(isset($_GET["rate"])=="same"){
+    echo'<script type="text/javascript">
+    swal("", "ສະກຸນເງິນນີ້ມີຢູ່ແລ້ວ ກະລຸນາໃສ່ສະກຸນເງິນທີ່ແຕກຕ່າງ !", "info");
+    </script>';
+  }  
+if(isset($_GET["rate"])=="found"){
+    echo'<script type="text/javascript">
+    swal("", "ບໍ່ສາມາດລົບຂໍ້ມູນໄດ້ ເນື່ອງຈາກສະກຸນເງິນ LAK, THB ແລະ USD ສະຫງວນໄວ້ !", "error");
+    </script>';
+  }  
+if(isset($_GET["save"])=="fail"){
+    echo'<script type="text/javascript">
+    swal("", "ບັນທຶກຂໍ້ມູນຜິດພາດ !", "error");
+    </script>';
+  }  
+  if(isset($_GET["save2"])=="success"){
+    echo'<script type="text/javascript">
+    swal("", "ບັນທຶກຂໍ້ມູນສຳເລັດ !", "success");
+    </script>';
+  }  
+  if(isset($_GET["update"])=="fail"){
+    echo'<script type="text/javascript">
+    swal("", "ແກ້ໄຂຂໍ້ມູນຜິດພາດ !", "error");
+    </script>';
+  }  
+  if(isset($_GET["update2"])=="success"){
+    echo'<script type="text/javascript">
+    swal("", "ແກ້ໄຂຂໍ້ມູນສຳເລັດ !", "success");
+    </script>';
+  }  
+  if(isset($_GET["del"])=="fail"){
+    echo'<script type="text/javascript">
+    swal("", "ລົບຂໍ້ມູນຜິດພາດ !", "error");
+    </script>';
+  }  
+  if(isset($_GET["del2"])=="success"){
+    echo'<script type="text/javascript">
+    swal("", "ລົບຂໍ້ມູນສຳເລັດ !", "success");
+    </script>';
+  }  
 ?>
 <script>
 $(function() {
@@ -197,4 +331,24 @@ $(function() {
             }, false)
         })
 })();
+</script>
+<script>
+function modal_update() {
+    $(document).ready(function() {
+        $('.btnUpdate_emp').on('click', function() {
+            // $('#table').bootstrapTable();
+            $('#exampleModalUpdate').modal('show');
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+            $('#rate_id_update').val(data[3]);
+            $('#rate_buy_update').val(data[4]);
+            $('#rate_sell_update').val(data[5]);
+
+        });
+    });
+}
 </script>

@@ -7,89 +7,68 @@ $Time = date("H:i:s",$datenow);
 class obj{
     public $conn;
     public $search;
-    public static function login($email,$password){
+    public static function login($email,$pass){
         global $conn;
-        // $password = "') or '1'='1';");//";
         session_start();
-        $resultck = mysqli_query($conn, "select * from employee where email='$email' and binary pass=md5('$password')");
+        $pass = md5($pass);
+        $resultck = mysqli_query($conn, "call login('$email','$pass')");
         if($email == "")
         {
             echo"<script>";
-            echo"window.location.href='home?email=null';";
+            echo"window.location.href='Login?email=null';";
             echo"</script>";
         }
-        else if($password == "")
+        else if($pass == "")
         {
             echo"<script>";
-            echo"window.location.href='home?pass=null';";
+            echo"window.location.href='Login?pass=null';";
             echo"</script>";
         }
         else if(!mysqli_num_rows($resultck))
         {
             echo"<script>";
-            echo"window.location.href='home?login=false';";
+            echo"window.location.href='Login?login=false';";
             echo"</script>";
         }
         else 
         {
-            $resultget = mysqli_query($conn, "select * from employee where email='$email' and binary pass=md5('$password')"); 
-            if(mysqli_num_rows($resultget) <= 0){
+            if(mysqli_num_rows($resultck) <= 0){
                 echo"<meta http-equiv-'refress' content='1;URL=/'>";
             }
             else{
                
-                while($user = mysqli_fetch_array($resultget))
+                while($user = mysqli_fetch_array($resultck))
                 {
-                    if($user['stt_id'] == 1)
+                    if($user['status'] == 1)
                     {
-                        $_SESSION['ses_seven_id'] = session_id();
+                        $_SESSION['game_gadget_lao_ses_id'] = session_id();
+                        $_SESSION['emp_id'] = $user['emp_id'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['emp_name'] = $user['emp_name'];
-                        $_SESSION['emp_id'] = $user['emp_id'];
                         $_SESSION['img_path'] = $user['img_path'];
-                        $_SESSION['ses_status_id'] = 1;
-                        echo"<meta http-equiv='refresh' content='1;URL=Manager/Main'>";
+                        $_SESSION['game_gadget_lao_ses_status_id'] = 1;
+                        echo"<meta http-equiv='refresh' content='1;URL=Admin/Main'>";
                     }
-                    else if($user['stt_id'] == 2)
+                    else if($user['status'] == 2)
                     {
-                        $_SESSION['ses_seven_id'] = session_id();
+                        $_SESSION['game_gadget_lao_ses_id'] = session_id();
+                        $_SESSION['emp_id'] = $user['emp_id'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['emp_name'] = $user['emp_name'];
-                        $_SESSION['emp_id'] = $user['emp_id'];
                         $_SESSION['img_path'] = $user['img_path'];
-                        $_SESSION['ses_status_id'] = 2;
+                        $_SESSION['game_gadget_lao_ses_status_id'] = 2;
                         echo"<meta http-equiv='refresh' content='1;URL=User/Main'>";
-                    }
-                    else if($user['stt_id'] == 3)
-                    {
-                        $_SESSION['ses_seven_id'] = session_id();
-                        $_SESSION['email'] = $user['email'];
-                        $_SESSION['emp_name'] = $user['emp_name'];
-                        $_SESSION['emp_id'] = $user['emp_id'];
-                        $_SESSION['img_path'] = $user['img_path'];
-                        $_SESSION['ses_status_id'] = 3;
-                        echo"<meta http-equiv='refresh' content='1;URL=User_Stock/Main'>";
-                    }
-                    else if($user['stt_id'] == 4)
-                    {
-                        $_SESSION['ses_seven_id'] = session_id();
-                        $_SESSION['email'] = $user['email'];
-                        $_SESSION['emp_name'] = $user['emp_name'];
-                        $_SESSION['emp_id'] = $user['emp_id'];
-                        $_SESSION['img_path'] = $user['img_path'];
-                        $_SESSION['ses_status_id'] = 4;
-                        echo"<meta http-equiv='refresh' content='1;URL=Check_Stock/Main'>";
                     }
                     else
                     {
-                        $_SESSION['ses_seven_id'] = session_id();
+                        $_SESSION['game_gadget_lao_ses_id'] = session_id();
                         session_start();
-                        unset($_SESSION['ses_seven_id']);
+                        unset($_SESSION['game_gadget_lao_ses_id']);
+                        unset($_SESSION['emp_id']);
                         unset($_SESSION['email']);
                         unset($_SESSION['emp_name']);
-                        unset($_SESSION['emp_id']);
                         unset($_SESSION['img_path']);
-                        unset($_SESSION['ses_status_id']);
+                        unset($_SESSION['game_gadget_lao_ses_status_id']);
                         session_destroy();
                         echo"<script>";
                         echo"window.location.href='/?permission=found';";
@@ -101,17 +80,17 @@ class obj{
         }  
     }
     public static function logout(){
-        global $path;
         session_start();
-        unset($_SESSION['ses_seven_id']);
+        unset($_SESSION['game_gadget_lao_ses_id']);
+        unset($_SESSION['emp_id']);
         unset($_SESSION['email']);
         unset($_SESSION['emp_name']);
-        unset($_SESSION['emp_id']);
         unset($_SESSION['img_path']);
-        unset($_SESSION['ses_status_id']);
+        unset($_SESSION['game_gadget_lao_ses_status_id']);
         session_destroy();
+        global $session_path;
         echo"<script>";
-        echo"window.location.href='$path';";
+        echo"window.location.href='$session_path';";
         echo"</script>";
     }
    

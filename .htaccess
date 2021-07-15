@@ -24,6 +24,8 @@ RewriteRule ^/?$ index.php
 RewriteRule ^index?$ index.php
 RewriteRule ^User/Main?$ User/Main.php
 
+RewriteRule ^Administrator/Index?$ Administrator/index.php
+RewriteRule ^Administrator/Login?$ Administrator/index.php
 RewriteRule ^Administrator/User/Main?$ Administrator/User/Main.php
 RewriteRule ^Administrator/User/Management/Employee?$ Administrator/User/Management/employee.php
 RewriteRule ^Administrator/User/Management/Supplier?$ Administrator/User/Management/supplier.php

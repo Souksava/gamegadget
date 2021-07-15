@@ -452,8 +452,8 @@ include (''.$path.'oop/obj.php');
             </div>
         </form>
         <?php
-            // if(isset($_POST['btnLogout'])){
-            //     $obj->logout();
-            // }
+            if(isset($_POST['btnLogout'])){
+                $obj->logout();
+            }
         ?>
         <div class="main-footer">

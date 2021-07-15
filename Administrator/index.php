@@ -10,8 +10,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="image/logo.png">
-  <title>Seven Digital</title>
+  <link rel="shortcut icon" href="image/title_logo.png">
+  <title>GAME GADGET</title>
   <link rel="stylesheet" href="dist/css/alt/style2.css">
   <link rel="stylesheet" href="dist/css/alt/style.css">
   <link rel="stylesheet" href="fontawesome/css/all.css">
@@ -38,7 +38,7 @@
     <div class="container">
       <div class="forms-container">
           <div class="signin-signup">
-              <form action="home" method="POST" id="formLogin" class="sign-in-form">
+              <form action="Login" method="POST" id="formLogin" class="sign-in-form">
                 <img src="image/logo.ico" alt="" width="100px"><br>
                 <h2 class="title">ເຂົ້າສູ່ລະບົບ</h2>
                   <div class="input-field">
@@ -108,7 +108,7 @@
                 <button class="btn transparent" id="sign-up-btn" style="display: none;">ໄປໜ້າລົງທະບຽນ</button>
               </div>
 
-              <img src="image/printer.svg" class="image" alt="">
+              <img src="image/login_picture.svg" class="image" alt="">
             </div>
             <div class="panel right-panel">
               <div class="content">

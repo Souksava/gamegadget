@@ -210,7 +210,12 @@ a:hover {
 sup {
     color: red;
 }
-
+.display_none{
+    display: none;
+}
+.icon-center{
+    width: 50px;text-align: center;
+}
 .table-responsive {
     overflow-y: scroll;
     /* height:700px; */

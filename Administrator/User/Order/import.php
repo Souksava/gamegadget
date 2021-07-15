@@ -63,7 +63,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-outline-secondary"
                                 data-dismiss="modal">ຍົກເລີກ</button>
-                            <button type="submit" name="btnAdd" id="btnAdd" class="btn btn-outline-primary">ບັນທຶກ
+                            <button type="submit" name="btnAdd" id="btnAdd" class="btn btn-outline-primary">ເພີ່ມລາຍການ
                                 <span class="" id="load_add"></span>
                             </button>
                         </div>
