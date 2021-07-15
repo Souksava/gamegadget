@@ -1,128 +1,34 @@
 <?php
-//    session_start();
-//    if($_SESSION['ses_status_id'] == 1){
-//         $stt = 1;
-//    }
-//    if($_SESSION['ses_status_id'] == 2){
-//     $stt = 2;
-//     }
-//     if($_SESSION['ses_status_id'] == 3){
-//         $stt = 3;
-//     }
-//     if($_SESSION['ses_status_id'] == 4){
-//         $stt = 4;
-
-//     }
-//     if($_SESSION['ses_seven_id'] == ''){
-//         unset($_SESSION['ses_id']);
-//         unset($_SESSION['email']);
-//         unset($_SESSION['emp_name']);
-//         unset($_SESSION['emp_id']);
-//         unset($_SESSION['img_path']);
-//         unset($_SESSION['ses_status_id']);
-//         echo"<meta http-equiv='refresh' content='1;URL=$path'>";        
-//     }
-//     else if($_SESSION['ses_status_id'] != $stt){
-//         unset($_SESSION['ses_id']);
-//         unset($_SESSION['email']);
-//         unset($_SESSION['emp_name']);
-//         unset($_SESSION['emp_id']);
-//         unset($_SESSION['img_path']);
-//         unset($_SESSION['ses_status_id']);
-//         echo"<meta http-equiv='refresh' content='1;URL=$path'>";
-//     }
-//     else{
-//             include (''.$path.'oop/obj.php');
-//             // Import
-//             if(isset($_POST['stock'])){
-//                 $obj->cookie_stock(trim($_POST['code']),trim($_POST['serial']),trim($_POST['qty']),trim($_POST['price']),trim($_POST['pro_no']),trim($_POST['dnv']),trim($_POST['imp_no']),trim($_POST['remark']));
-//             }
-//             if(isset($_POST['btnDelete_stock'])){
-//                 $obj->del_stock(trim($_POST['id']));
-//             }
-//             if(isset($_POST['clear-stock'])){
-//                 $obj->clear_stock();
-//             }
-//             if(isset($_POST['btnStock'])){
-//                 $obj->save_stock(trim($_POST['sup_id']),trim($_POST['rate_id']),$_SESSION['emp_id']);
-//             }
-//             //End Import
-//             // Check-Stock
-//             if(isset($_POST['check_stock'])){
-//                 $obj->cookie_check_stock(trim($_POST['code']),trim($_POST['serial']),trim($_POST['qty']),trim($_POST['remark']));
-//             }
-//             if(isset($_POST['btnDelete_Check_Stock'])){
-//                 $obj->del_check_stock(trim($_POST['id']));
-//             }
-//             if(isset($_POST['clear_check_stock'])){
-//                 $obj->clear_check_stock();
-//             }
-            
-//             if(isset($_POST['btnCheck_stock'])){
-//                 $obj->save_check_stock($_SESSION['emp_id'],$_POST['pro_addr']);
-//             }
-//             //End Check-Stock
-
-//             //Spare-part
-//             if(isset($_POST['add_spare'])){
-//                 $obj->cookie_spare_part(trim($_POST['code']),trim($_POST['serialout']),trim($_POST['spare_part']),trim($_POST['pro_id']),trim($_POST['serialin']),trim($_POST['remark']));
-//             }
-//             if(isset($_POST['btnDelete_spare'])){
-//                 $obj->del_spare_part(trim($_POST['id']));
-//             }
-//             if(isset($_POST['clear_spare'])){
-//                 $obj->clear_spare_part();
-//             }
-//             if(isset($_POST['btnSave_spare'])){
-//                 $obj->save_spare_part($_SESSION['emp_id']);
-//             }
-//             //ປ່ຽນອາໄຫຼ່ End Spare-Part
-//             //ຟອມເບີກ
-//             if(isset($_POST['add_distribute'])){
-//                 $obj->cookie_distribute(trim($_POST['code']),trim($_POST['serial']),trim($_POST['qty']),trim($_POST['form_id']),trim($_POST['remark']));
-//             }
-//             if(isset($_POST['clear_distribute'])){
-//                 $obj->clear_distribute();
-//             }
-//             if(isset($_POST['btnDelete_distribute'])){
-//                 $obj->del_distribute(trim($_POST['id']));
-//             }
-//             if(isset($_POST['btnSave_distribute'])){
-//                 $obj->save_distribute($_SESSION['emp_id']);
-//             }
-//             //ສິ້ນສຸດຟອມເບີກ
-//             //ສິນຄ້າເບີກແລ້ວນຳກັບຄືນ
-//             if(isset($_POST['add_putback'])){
-//                 $obj->cookie_putback(trim($_POST['code']),trim($_POST['serial']),trim($_POST['qty']),trim($_POST['form_id']),trim($_POST['remark']));
-//             }
-//             if(isset($_POST['clear_putback'])){
-//                 $obj->clear_putback();
-//             }
-//             if(isset($_POST['btnDelete_putback'])){
-//                 $obj->del_putback(trim($_POST['id']));
-//             }
-//             if(isset($_POST['btnSave_putback'])){
-//                 $obj->save_putback($_SESSION['emp_id']);
-//             }
-//             //ສິ້ນສຸດ
-//                         //ສິນຄ້າເບີກແລ້ວນຳກັບຄືນ
-//                         if(isset($_POST['form_add'])){
-//                             $obj->cookie_form(trim($_POST['code']),trim($_POST['qty']));
-//                         }
-//                         if(isset($_POST['clear_form'])){
-//                             $obj->clear_form();
-//                         }
-//                         if(isset($_POST['del_list_form_id'])){
-//                             $obj->del_form(trim($_POST['del_list_form_id']));
-//                         }
-//                         if(isset($_POST['form_id'])){
-//                             $mail_user_name = $_SESSION['emp_name'];
-//                             $obj->save_form(trim($_POST['form_id']),$_SESSION['emp_id'],trim($_POST['cus_id']),trim($_POST['amount']),trim($_POST['packing']));
-            
-//                         }
-//                         //ສິ້ນສຸດ
-//                     }
-include (''.$path.'oop/obj.php');        
+   session_start();
+   if($_SESSION['game_gadget_lao_ses_status_id'] == 1){
+        $stt = 1;
+   }
+   if($_SESSION['game_gadget_lao_ses_status_id'] == 2){
+    $stt = 2;
+    }
+    if($_SESSION['game_gadget_lao_ses_id'] == ''){
+        unset($_SESSION['game_gadget_lao_ses_id']);
+        unset($_SESSION['email']);
+        unset($_SESSION['emp_name']);
+        unset($_SESSION['emp_id']);
+        unset($_SESSION['img_path']);
+        unset($_SESSION['game_gadget_lao_ses_status_id']);
+        echo"<meta http-equiv='refresh' content='1;URL=$path'>";        
+    }
+    else if($_SESSION['game_gadget_lao_ses_status_id'] != $stt){
+        unset($_SESSION['game_gadget_lao_ses_id']);
+        unset($_SESSION['email']);
+        unset($_SESSION['emp_name']);
+        unset($_SESSION['emp_id']);
+        unset($_SESSION['img_path']);
+        unset($_SESSION['game_gadget_lao_ses_status_id']);
+        echo"<meta http-equiv='refresh' content='1;URL=$path'>";
+    }
+    else{
+        if($_SESSION["img_path"] == ""){
+            $_SESSION["img_path"] = "image.jpeg";
+        }
+    }
       ?>
 <!DOCTYPE html>
 <html>
@@ -165,7 +71,25 @@ include (''.$path.'oop/obj.php');
 
     <script src="<?php echo $path ?>dist/js/sweetalert.min.js"></script>
 </head>
-
+<?php
+include (''.$path.'oop/obj.php');        
+ if(isset($_POST["btnAdd_sell"])){
+    $obj->cookie_sell(trim($_POST["pro_id_sell"]),trim($_POST["qty_sell"]));
+}
+if(isset($_GET["listsell"])){
+    $obj->del_sell(trim($_GET["listsell"]));
+}
+if(isset($_POST["btn_save"])){
+    $result_get_cus_id = mysqli_query($conn,"SELECT * FROM customers WHERE cus_name='ລູກຄ້າທົ່ວໄປ'");
+    $row_get_cus_id = mysqli_fetch_array($result_get_cus_id,MYSQLI_ASSOC);
+    $cusid = $row_get_cus_id["cus_id"];
+    // $sellid = $_POST["getmoney"];
+    // echo"<script>";
+    // echo"alert('$sellid');";
+    // echo"</script>";
+    $obj->save_sell(trim($_POST["sell_id"]),$_SESSION["emp_id"],$cusid,$_POST["amount"],trim($_FILES["img_path"]["name"]),$_POST["delivery"],trim($_POST["getmoney"]));
+}
+?>
 <body class="hold-transition sidebar-mini layout-fixed">
 
     <div class="wrapper">
@@ -194,10 +118,10 @@ include (''.$path.'oop/obj.php');
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?php echo $path ?>image/image.jpeg" class="img-circle elevation-2" alt="">
+                        <img src="<?php echo $path ?>image/<?php echo $_SESSION["img_path"] ?>" class="img-circle elevation-2" alt="">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">User</a>
+                        <a href="#" class="d-block"><?php echo $_SESSION["emp_name"] ?></a>
                     </div>
                 </div>
                 <nav class="mt-2">

@@ -39,6 +39,7 @@ RewriteRule ^Administrator/User/Order/Order?$ Administrator/User/Order/order.php
 RewriteRule ^Administrator/User/Order/Import?$ Administrator/User/Order/import.php
 RewriteRule ^Administrator/User/Service/Online?$ Administrator/User/Service/online.php
 RewriteRule ^Administrator/User/Service/Sell?$ Administrator/User/Service/sell.php
+RewriteRule ^Administrator/User/Service/Bill?$ Administrator/User/Service/bill.php
 
 
 
