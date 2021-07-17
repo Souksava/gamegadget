@@ -4,6 +4,7 @@ date_default_timezone_set("Asia/Bangkok");
 $datenow = time();
 $Date = date("Y-m-d",$datenow);
 $Time = date("H:i:s",$datenow);
+$Year = date("Y",$datenow);
 class obj{
     public $conn;
     public $search;

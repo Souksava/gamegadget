@@ -22,6 +22,23 @@ ErrorDocument 404 /health_checkup/404/error.php
 
 RewriteRule ^/?$ index.php
 RewriteRule ^index?$ index.php
+RewriteRule ^Home?$ index.php
+RewriteRule ^Search/Search?$ Search/search.php
+RewriteRule ^Check/Logout?$ Check/logout.php
+RewriteRule ^Login/Login?$ Login/frmlogin.php
+RewriteRule ^Login/Register?$ Login/register.php
+RewriteRule ^Check/Login?$ Check/checklogin.php
+RewriteRule ^Check/Logout?$ Check/logout.php
+RewriteRule ^Product/Productdetail?$ Product/productdetail.php
+RewriteRule ^Contact/Contact?$ Contact_us/contact_us.php
+RewriteRule ^Basket/Basket?$ Basket/basket.php
+RewriteRule ^Basket/Delivery?$ Basket/delivery.php
+RewriteRule ^Basket/Order?$ Basket/order.php
+RewriteRule ^Basket/Billdetail?$ Basket/billdetail.php
+RewriteRule ^Basket/Payment?$ Basket/payment.php
+RewriteRule ^Contact?$ contact.php
+RewriteRule ^Product?$ product.php
+RewriteRule ^Productdetail?$ productdetail.php
 RewriteRule ^User/Main?$ User/Main.php
 
 RewriteRule ^Administrator/Index?$ Administrator/index.php

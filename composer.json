@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mpdf/mpdf": "^8.0",
+        "facebook/graph-sdk": "^5.7"
+    }
+}
