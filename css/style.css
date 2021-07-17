@@ -35,6 +35,23 @@ Version:1.0
 20. 404 Error CSS
 21. Footer CSS
 ========================================*/
+@font-face {
+    font-family: 'Noto Sans Lao';
+    src: url(NotoSansLao-Bold.ttf) format('truetype'), url(notosanslao-bold-webfont.woff) format('woff'), url(notosanslao-bold-webfont.woff2) format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: '10B Muc Zeit';
+    src: url(Muc-Zeit-Medium.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: '10B Muc Zeit', 'Noto Sans Lao', 'Phetsarath OT', sans-serif!important;
+}
 .color-plate {
 	position: fixed;
 	display: block;
@@ -3105,7 +3122,7 @@ Version:1.0
 .shopping-cart .total-amount .left .checkbox label::after {
 	position: absolute;
 	content: "\f00c";
-	font-family: "Fontawesome";
+	font-family: "Fontawesome","Noto Sans Lao";
 	left: 0;
 	top: 0;
 	width: 22px;
@@ -3510,7 +3527,7 @@ Version:1.0
 .shop.login .login-form .checkbox label::after {
 	position: absolute;
 	content: "\f00c";
-	font-family: "Fontawesome";
+	font-family: "Fontawesome","Noto Sans Lao";
 	width: 12px;
 	height: 12px;
 	line-height: 23px;

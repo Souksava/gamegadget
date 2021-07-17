@@ -1,17 +1,17 @@
 .font18{
     font-size: 18px;
     color: black;
-    font-family: "Noto Sans Lao UI";
+    font-family: "Noto Sans Lao UI","Noto Sans Lao";
 }
 .font14{
     font-size: 14px;
     color: black;
-    font-family: "Noto Sans Lao UI";
+    font-family: "Noto Sans Lao UI","Noto Sans Lao";
 }
 .font12{
     font-size: 12px;
     color: black;
-    font-family: "Noto Sans Lao UI";
+    font-family: "Noto Sans Lao UI","Noto Sans Lao";
 }
 .legal3{
     margin: 0 auto;

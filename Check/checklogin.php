@@ -19,7 +19,7 @@
              else if($pass == "")
              {
                 echo"<script>";
-                echo"window.location.href='../Login/Logout?pass=not';";
+                echo"window.location.href='../Login/Login?pass=not';";
                 echo"</script>";
              }
              else if(!mysqli_num_rows($resultck))
