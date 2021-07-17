@@ -125,6 +125,9 @@ if(isset($_POST["btn_save"])){
                     </div>
                 </div>
                 <nav class="mt-2">
+                <?php
+                    if($stt == 1){
+                ?>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item has-treeview">
@@ -143,6 +146,132 @@ if(isset($_POST["btn_save"])){
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="" class="nav-link">
+                              <i class="fas fa-shopping-cart nav-icon"></i>
+                                <p>
+                                    ອະນຸມັດ
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                           
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Order/Acception" class="nav-link">
+                                        <i class="fas fa-vote-yea nav-icon"></i>
+                                        <p>ອະນຸມັດ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                           
+                        </li>
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-book"></i>
+                                <p>
+                                    ລາຍງານ
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Report/report-employee" class="nav-link">
+                                        <i class="far fas fa-book nav-icon"></i>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນພະນັກງານ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Report/report-customer" class="nav-link">
+                                        <i class="far fas fa-book nav-icon"></i>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນລູກຄ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Report/report-supplier" class="nav-link">
+                                        <i class="far fas fa-book nav-icon"></i>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນສິນຄ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                        <i class="far fas fa-book nav-icon"></i>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນການສັ່ງຊື້</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                        <i class="far fas fa-book nav-icon"></i>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນການນຳເຂົ້າ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                        <i class="far fas fa-book nav-icon"></i>
+                                        <p>ສ້າງລາຍງານຂໍ້ມູນການຂາຍ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                        <i class="far fas fa-book nav-icon"></i>
+                                        <p>ສ້າງລາຍງານສິນຄ້າຂາຍດີ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                        <i class="far fas fa-book nav-icon"></i>
+                                        <p>ພິມໃບບິນການຂາຍ</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                        <i class="far fas fa-book nav-icon"></i>
+                                        <p>ພິມໃບບິນການສັ່ງຊື້</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                                <i class="nav-icon fas fa-power-off"></i>
+                                <p>
+                                    ອອກຈາກລະບົບ
+                                </p>
+                            </a>
+                        </li>
+                        </li>
+                    </ul>
+                    <?php
+                    }
+                    ?>
+                <?php
+                    if($stt == 2){
+                ?>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    ຈັດການຂໍ້ມູນຫຼັກ
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="<?php echo $links ?>Management/Supplier" class="nav-link">
@@ -348,6 +477,9 @@ if(isset($_POST["btn_save"])){
                         </li>
                         </li>
                     </ul>
+                    <?php
+                    }
+                    ?>
                 </nav>
             </div>
         </aside>

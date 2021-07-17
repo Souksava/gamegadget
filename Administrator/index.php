@@ -137,6 +137,11 @@
       swal("", "ອີເມວ ຫຼື ລະຫັດຜ່ານຂອງທ່ານບໍ່ຖືກຕ້ອງ!", "error");
       </script>';
     }
+    if(isset($_GET['permission'])=='found'){
+      echo'<script type="text/javascript">
+      swal("", "ຜູ້ໃຊ້ນີ້ບໍ່ມີສິດເຂົ້າໃຊ້ລະບົບ!", "error");
+      </script>';
+    }
     ?>
     <script src="dist/js/app.js"></script>
 </body>

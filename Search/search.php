@@ -21,7 +21,7 @@ require '../config.php';
 	<!-- Title Tag  -->
     <title><?php echo $rowshop['name']; ?></title>
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="../backend/image/<?php echo $rowshop['img_title']; ?>">
+	<link rel="icon" type="image/png" href="../Administrator/image/<?php echo $rowshop['img_title']; ?>">
 	<!-- Web Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 	
@@ -219,99 +219,7 @@ require '../config.php';
 						<?php
 							}
 						}
-						?>		
-						<?php 
-						if(isset($_SESSION['fb_access_token']) != ''){
-							$token = $_SESSION['fb_access_token'];
-							try {
-								// Returns a `Facebook\FacebookResponse` object
-								$response = $fb->get('/me?fields=id,name,email', $token);
-							} catch(Facebook\Exceptions\FacebookResponseException $e) {
-								echo 'Graph returned an error: ' . $e->getMessage();
-								exit;
-							} catch(Facebook\Exceptions\FacebookSDKException $e) {
-								echo 'Facebook SDK returned an error: ' . $e->getMessage();
-								exit;
-							}
-							$user = $response->getGraphUser();
-							$fb_id = $user['id'];
-							$sqlcus_id = "select * from customers where fb_id='$fb_id';";
-							$resultcus_id = mysqli_query($conn,$sqlcus_id);
-							$rowcus_id = mysqli_fetch_array($resultcus_id,MYSQLI_ASSOC);
-							$cus_idfb = $rowcus_id['cus_id'];				
-							$sqlsumlist = "select sum((p.price-promotion) * l.qty) as amount,count(l.pro_id) as countorder from listselldetail l left join product p on l.pro_id=p.pro_id where l.cus_id = '$cus_idfb';";
-							$resultsumlist = mysqli_query($conn,$sqlsumlist);               
-							$rowsumlist = mysqli_fetch_array($resultsumlist,MYSQLI_ASSOC);
-							$sqllistfbck = "select l.detail_id,l.pro_id,pro_name,l.color_id,l.qty,p.price,promotion,p.price-promotion as newprice,(promotion / p.price) * 100 as perzen,cate_name,cated_name,brand_name,unit_name,color_name,p.img_path from listselldetail l left join product p on l.pro_id=p.pro_id left join categorydetail d on p.cated_id=d.cated_id left join brand b on p.brand_id=b.brand_id left join unit u on p.unit_id=u.unit_id left join category c on d.cate_id=c.cate_id left join product_color o on l.color_id=o.color_id where l.cus_id = '$cus_idfb';";
-							$resultlistfbck = mysqli_query($conn,$sqllistfbck);               
-							if(mysqli_num_rows($resultlistfbck) > 0){
-						?>
-						<div class="right-bar">
-							<!-- Search Form -->					
-							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?php echo $rowsumlist['countorder']; ?></span></a>
-								<!-- Shopping Item -->
-								<div class="shopping-item">
-									<div class="dropdown-cart-header">
-										<span><?php echo $rowsumlist['countorder']; ?> Items</span>
-										<a href="../Basket/Basket">View Cart</a>
-									</div>
-									<ul class="shopping-list">
-										<?php 
-										  $sqllistfb = "select l.detail_id,l.pro_id,pro_name,l.color_id,l.qty,p.price,promotion,p.price-promotion as newprice,(p.price-promotion) * l.qty as total,(promotion / p.price) * 100 as perzen,cate_name,cated_name,brand_name,unit_name,color_name,p.img_path from listselldetail l left join product p on l.pro_id=p.pro_id left join categorydetail d on p.cated_id=d.cated_id left join brand b on p.brand_id=b.brand_id left join unit u on p.unit_id=u.unit_id left join category c on d.cate_id=c.cate_id left join product_color o on l.color_id=o.color_id where l.cus_id = '$cus_idfb';";
-										  $resultlistfb = mysqli_query($conn,$sqllistfb);               
-										  while($rowlistfb = mysqli_fetch_array($resultlistfb,MYSQLI_ASSOC)){
-										?>
-										<li>
-											<a class="cart-img" href="#"><img src="http://backend.gamegadgetlao.com/image/<?php echo $rowlistfb['img_path']; ?>" style="width: 70px;height:70px;" alt="#"></a>
-											<h4><a href="#"><?php echo $rowlistfb['cate_name']; ?> <?php echo $rowlistfb['brand_name']; ?> <?php echo $rowlistfb['pro_name']; ?> <?php echo $rowlistfb['cated_name']; ?></a></h4>
-											<p class="quantity"><?php echo $rowlistfb['qty']; ?>x - <span class="amount"><?php echo number_format($rowlistfb['total'],2); ?></span></p>
-										</li>
-										<?php 
-											}
-										?>
-									</ul>
-									<div class="bottom">
-										<div class="total">
-											<span>Total</span>
-											<span class="total-amount"><?php echo number_format($rowsumlist['amount'],2); ?> K</span>
-										</div>
-										<form action="../Basket/Delivery" method="POST" id="formdeli">
-                                            <button type="submit" class="btn" style="font-family: 'Noto Sans Lao,Arial';width: 100%;">ດຳເນີນການສັ່ງຊື້</button>
-                                        </form>
-									</div>
-								</div>
-								<!--/ End Shopping Item -->
-							</div>						
-						</div>
-						<?php 
-							}
-							else {
-						?>
-						<div class="right-bar">
-							<!-- Search Form -->					
-							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count"><?php echo $rowsumlist['countorder']; ?></span></a>
-								<!-- Shopping Item -->
-								<div class="shopping-item">
-									<div class="dropdown-cart-header">
-										<span> ກະຕ່າສິນຄ້າ</span>
-										<a href="../Basket/Basket">View Cart</a>
-									</div>
-									<ul class="shopping-list">
-										<li>
-											<h4 align="center"><a href="#">ບໍ່ມີລາຍການສິນຄ້າ</a></h4>
-										</li>
-									</ul>
-								</div>
-								<!--/ End Shopping Item -->
-							</div>						
-						</div>
-						<?php
-							}
-						}
-						?>		
-					
+						?>			
 					</div>
 				</div>
 			</div>
@@ -373,8 +281,9 @@ require '../config.php';
 									<div class="tab-single">
 										<div class="row">
 											<?php 
-												$sqlprobrand = "select p.pro_id,pro_name,brand_name,p.status,promotion,p.promotion,cated_name,cate_name,p.price,p.img_path,p.price-promotion as newprice,(promotion/p.price) * 100 as persen from product p left join brand b on p.brand_id=b.brand_id left join categorydetail d on p.cated_id=d.cated_id left join category c on d.cate_id=c.cate_id where cated_name like '$id' or brand_name like '$id' or pro_name like '$id' or p.pro_id like '$id' and qty != '0' order by p.pro_name;";
+												$sqlprobrand = "call search_product('$id');";
 												$resultprobrand = mysqli_query($conn,$sqlprobrand);
+												if(!$resultprobrand){
 												while($rowprobrand = mysqli_fetch_array($resultprobrand,MYSQLI_ASSOC)){
 											?>
 											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
@@ -439,6 +348,10 @@ require '../config.php';
 											</div>
 											<?php 
 												}
+												echo"<h2 align'center'>ບໍ່ມີຂໍ້ມູນ</h2><br>";
+											}
+												mysqli_free_result($resultprobrand);  
+												mysqli_next_result($conn);
 											?>
 										</div>
 									</div>

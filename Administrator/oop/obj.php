@@ -72,7 +72,7 @@ class obj{
                         unset($_SESSION['game_gadget_lao_ses_status_id']);
                         session_destroy();
                         echo"<script>";
-                        echo"window.location.href='/?permission=found';";
+                        echo"window.location.href='Login?permission=found';";
                         echo"</script>";
                     }
 

@@ -44,7 +44,7 @@ RewriteRule ^User/Main?$ User/Main.php
 RewriteRule ^Administrator/Index?$ Administrator/index.php
 RewriteRule ^Administrator/Login?$ Administrator/index.php
 RewriteRule ^Administrator/User/Main?$ Administrator/User/Main.php
-RewriteRule ^Administrator/User/Management/Employee?$ Administrator/User/Management/employee.php
+RewriteRule ^Administrator/Admin/Management/Employee?$ Administrator/Admin/Management/employee.php
 RewriteRule ^Administrator/User/Management/Supplier?$ Administrator/User/Management/supplier.php
 RewriteRule ^Administrator/User/Management/Type?$ Administrator/User/Management/type.php
 RewriteRule ^Administrator/User/Management/Category?$ Administrator/User/Management/category.php
@@ -61,7 +61,7 @@ RewriteRule ^Administrator/User/Service/Bill?$ Administrator/User/Service/bill.p
 
 
 
-
+RewriteRule ^Administrator/Admin/Main?$ Administrator/Admin/Main.php
 
 
 
