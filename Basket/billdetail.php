@@ -1,6 +1,6 @@
 <?php 
 session_start();
-if($_SESSION['ses_id'] != ''){
+if($_SESSION['game_gadget_customer_ses_id'] != ''){
 
 }
 else{
@@ -96,7 +96,7 @@ require '../Login/config.php';
 						<div class="right-content font14">
 							<ul class="list-main">
                                     <?php 
-                                        if(isset($_SESSION['ses_id']) != ''){
+                                        if(isset($_SESSION['game_gadget_customer_ses_id']) != ''){
                                     ?>
                                         <li><i class="ti-user"></i> <a href="../Login/Login">ບັນຊີຂອງຂ້ອຍ</a></li>
                                         <li><i class="ti-power-off"></i><a href="../Check/Logout">ອອກຈາກລະບົບ</a></li>
@@ -153,7 +153,7 @@ require '../Login/config.php';
 					</div>
                     <div class="col-lg-2 col-md-3 col-12 font14">
 					<?php 
-                           if($_SESSION['ses_id'] != ''){
+                           if($_SESSION['game_gadget_customer_ses_id'] != ''){
                                $cus_id2 = $_SESSION['cus_id'];
                         ?>
                             <div class="right-bar">    
@@ -205,7 +205,7 @@ require '../Login/config.php';
 	</header><br>
     <!--/ End Header -->
     <?php 
-        if($_SESSION['ses_id'] != ''){
+        if($_SESSION['game_gadget_customer_ses_id'] != ''){
 			$cus_id = $_SESSION['cus_id'];
 			$sell_id = $_GET['id'];
 			$sqlseen = "update sell set seen2='SEEN' where sell_id='$sell_id' and cus_id='$cus_id';";

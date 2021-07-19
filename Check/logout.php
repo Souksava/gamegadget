@@ -1,6 +1,6 @@
 <?php
     session_start();
-    unset($_SESSION['ses_id']);
+    unset($_SESSION['game_gadget_customer_ses_id']);
     unset($_SESSION['cus_id']);
     unset($_SESSION['cus_name']);
     unset($_SESSION['cus_surname']);

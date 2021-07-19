@@ -83,11 +83,31 @@ if(isset($_POST["btn_save"])){
     $result_get_cus_id = mysqli_query($conn,"SELECT * FROM customers WHERE cus_name='ລູກຄ້າທົ່ວໄປ'");
     $row_get_cus_id = mysqli_fetch_array($result_get_cus_id,MYSQLI_ASSOC);
     $cusid = $row_get_cus_id["cus_id"];
-    // $sellid = $_POST["getmoney"];
-    // echo"<script>";
-    // echo"alert('$sellid');";
-    // echo"</script>";
     $obj->save_sell(trim($_POST["sell_id"]),$_SESSION["emp_id"],$cusid,$_POST["amount"],trim($_FILES["img_path"]["name"]),$_POST["delivery"],trim($_POST["getmoney"]));
+}
+if(isset($_POST['btnAddOrder'])){
+    $obj->cookie_order(trim($_POST['pro_id_order']),trim($_POST['qty']),trim($_POST['price']));
+}
+if(isset($_POST['btnclear_Order'])){
+    $obj->clear_order();
+}
+if(isset($_POST['btnDelete_cookie_one'])){
+    $obj->del_order(trim($_POST['cookie_pro_id']));
+}
+if(isset($_POST['btnSaveOrder'])){
+    $obj->save_order(trim($_POST['order_id']),$_SESSION["emp_id"],trim($_POST['sup_id']),trim($_POST["amount"]),trim($_POST["rate_id"]));
+}
+if(isset($_POST['btnAddImport'])){
+    $obj->cookie_import(trim($_POST['pro_id_import']),trim($_POST['qty']),trim($_POST['price']),trim($_POST['remark']));
+}
+if(isset($_POST['btnclear_Import'])){
+    $obj->clear_import();
+}
+if(isset($_POST['cookie_pro_id_import'])){
+    $obj->del_import(trim($_POST['cookie_pro_id_import']));
+}
+if(isset($_POST['sup_id_import'])){
+    $obj->save_import(trim($_POST['order_id_import']),$_SESSION["emp_id"],trim($_POST['sup_id_import']),trim($_POST['import_no']));
 }
 ?>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -158,7 +178,7 @@ if(isset($_POST["btn_save"])){
                            
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Order/Acception" class="nav-link">
+                                    <a href="<?php echo $links ?>Accept/Accept" class="nav-link">
                                         <i class="fas fa-vote-yea nav-icon"></i>
                                         <p>ອະນຸມັດ</p>
                                     </a>

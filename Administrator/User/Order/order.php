@@ -11,70 +11,124 @@
 }
 </style>
 <div style="width: 100%;">
-    <a href="#">ກວດສອບສິນຄ້າ</a>&nbsp <img src="<?php echo $path ?>icon/hidemenu.ico" width="10px">
+    <a href="Order?alert=1">ກວດສອບສິນຄ້າ</a>&nbsp <img src="<?php echo $path ?>icon/hidemenu.ico" width="10px">
 </div>
 <div class="row">
     <div class="col-md-7">
-        
-<div class="table-responsive">
-    <table id="table" data-pagination="true" data-search="true" data-toolbar="#toolbar" data-advanced-search="true"
-        data-click-to-select="true" data-id-table="advancedTable" data-show-columns="true" data-resizable="true"
-        data-id-field="name" data-page-list="[10, 25, 50, 100, all]" data-search-highlight="true"
-        style="width: 1000px;">
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th data-sortable="true">ສິນຄ້າ</th>
-                <th data-field="id" data-sortable="true">ລະຫັດ</th>
-                <th data-field="name" data-sortable="true">ຊື່ສິນຄ້າ</th>
-                <th data-field="category" data-sortable="true">ປະເພດສິນຄ້າ</th>
-                <th data-field="brand" data-sortable="true">ຍີ່ຫໍ້</th>
-                <th data-field="qty" data-sortable="true">ຈຳນວນ</th>
-                <th data-field="qtyalert" data-sortable="true">ເງື່ອນໄຂການສັ່ງຊື້</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="click" data-toggle="modal" data-target="#exampleModalUpdate">
-                <td>1</td>
-                <td> <a href="<?php echo $path;?>image/img_5f1beac4d3794.jpeg" target="_blank">
-                        <img src="<?php echo $path;?>image/img_5f1beac4d3794.jpeg" class="img-circle elevation-2" alt=""
-                            width="50px">
-                    </a>
-                </td>
-                <td>0311000101</td>
-                <td>HG13 CHIEF</td>
-                <td>ຫູຟັງ ຫູຟັງ Headset & Earphones</td>
-                <td>Fantech</td>
-                <td>1 ກ່ອງ</td>
-                <td>1</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+
+        <div class="table-responsive">
+            <table id="table" data-pagination="true" data-search="true" data-toolbar="#toolbar"
+                data-advanced-search="true" data-id-table="advancedTable" data-show-columns="true" data-resizable="true"
+                data-page-list="[10, 25, 50, 100, all]" data-search-highlight="true" style="width: 850px;">
+                <thead>
+                    <tr>
+                        <!-- <th></th> -->
+                        <th>No.</th>
+                        <th class="display_none"></th>
+                        <th class="display_none"></th>
+                        <th data-sortable="true">ສິນຄ້າ</th>
+                        <th data-field="id" data-sortable="true">ລະຫັດ</th>
+                        <th data-field="name" data-sortable="true">ຊື່ສິນຄ້າ</th>
+                        <th data-field="qty" data-sortable="true">ຈຳນວນ</th>
+                        <th data-field="qtyalert" data-sortable="true">ເງື່ອນໄຂການສັ່ງຊື້</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        $no_ = 0;
+                        if(isset($_GET["alert"])){
+                            $select_product = mysqli_query($conn,"call select_product_alert();");
+                        }
+                        else{
+                            $select_product = mysqli_query($conn,"call select_product();");
+                        }
+                        foreach($select_product as $row){
+                        $no_ ++;
+                    ?>
+                    <tr class="click btnUpdate_emp">
+                        <!-- <td class="icon-center">
+                            <a href="#" class="fa fa-pen toolcolor btnUpdate_emp" onclick="modal_update()"></a>&nbsp;
+                            &nbsp;
+                        </td> -->
+                        <td><?php echo $no_; ?></td>
+                        <td class="display_none"><?php echo $row["img_path"] ?></td>
+                        <td class="display_none"><?php echo $row["qty"] ?></td>
+                        <?php 
+                            if($row["img_path"] == ""){
+                                $row["img_path"] = "image.jpeg";
+                            }
+                        ?>
+                        <td> <a href="<?php echo $path;?>image/<?php echo $row["img_path"] ?>" target="_blank">
+                                <img src="<?php echo $path;?>image/<?php echo $row["img_path"] ?>"
+                                    class="img-circle elevation-2" alt="" width="50px">
+                            </a>
+                        </td>
+                        <td><?php echo $row["pro_id"] ?></td>
+                        <td><?php echo $row["cated_name"] ?> <?php echo $row["brand_name"] ?>
+                            <?php echo $row["pro_name"] ?>
+                        </td>
+                        <td><?php echo $row["qty"] ?> <?php echo $row["unit_name"] ?></td>
+                        <td><?php echo $row["qtyalert"] ?></td>
+                    </tr>
+                    <?php 
+                        }
+                        mysqli_free_result($select_product);  
+                        mysqli_next_result($conn);
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div class="col-md-5">
         <div class="card">
             <div class="card-body">
                 <h5 align="center" class="card-title"></h5>
                 <p class="card-text">
-                <form action="form" id="form_save" method="POST">
+                <form action="Order" id="form_save" method="POST" class="needs-validation" novalidate>
                     <div>
                         ເລກທີໃບສັ່ງຊື້: <label class="order_id"></label>
                     </div>
-                    <form action="Order" method="POST" id="form_save">
+
                         <div class="row">
-                            <div class="col-md-8">
-                                <div class="form-control2">
-                                    <select name="sup_id" id="sup_id" class="selectcenter">
+                            <div class="col-md-4 form-group">
+                                    <select name="sup_id" id="sup_id" class="selectcenter form-control" required>
                                         <option value="" disabled selected>--- ຜູ້ສະໜອງ ---</option>
-                                        <option value="">
-                                            JIRO Computer
+                                        <?php
+                                            $result_suppliery = mysqli_query($conn,"call select_supplier()");
+                                            foreach($result_suppliery as $rowsup){
+                                        ?>
+                                        <option value="<?php echo $rowsup['sup_id'] ?>">
+                                            <?php echo $rowsup['company'] ?>
                                         </option>
+                                        <?php
+                                            }
+                                            mysqli_free_result($result_suppliery);  
+                                            mysqli_next_result($conn);
+                                        ?>
                                     </select>
-                                    <i class="fas fa-check-circle "></i>
-                                    <i class="fas fa-exclamation-circle "></i>
-                                    <small class="">Error message</small>
-                                </div>
+                                    <div class="invalid-feedback">
+                                        ກະລຸນາເລືອກຜູ້ສະໜອງ
+                                    </div>
+                            </div>
+                            <div class="col-md-4 form-group">
+                                    <select name="rate_id" id="rate_id" class="selectcenter form-control" required>
+                                        <option value="" disabled selected>--- ສະກຸນເງິນ ---</option>
+                                        <?php
+                                            $result_rate = mysqli_query($conn,"call select_rate()");
+                                            foreach($result_rate as $rowrate){
+                                        ?>
+                                        <option value="<?php echo $rowrate['rate_id'] ?>">
+                                            <?php echo $rowrate['rate_id'] ?>
+                                        </option>
+                                        <?php
+                                            }
+                                            mysqli_free_result($result_rate);  
+                                            mysqli_next_result($conn);
+                                        ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        ກະລຸນາເລືອກສະກຸນເງິນ
+                                    </div>
                             </div>
                             <div class="col-md-4">
                                 <div align="center-right">
@@ -98,7 +152,7 @@
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-outline-secondary"
                                                         data-dismiss="modal">ຍົກເລີກ</button>
-                                                    <button type="submit" name="Save" id="btnSave_load"
+                                                    <button type="submit" name="btnSaveOrder" id="btnSaveOrder"
                                                         class="btn btn-outline-success" onclick="">
                                                         ບັນທຶກ
                                                         <span class="" id="load_save"></span>
@@ -110,7 +164,11 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    <?php
+                        $amount = 0;
+                        $obj->select_order_cookie();
+                        if(isset($_COOKIE['list_order'])){
+                    ?>
                     <div class="table-responsive2" style="text-align: center;">
                         <table class="table font12" style="width: 750px">
                             <tr>
@@ -121,34 +179,70 @@
                                 <th>ຈຳນວນ</th>
                                 <th>ລາຄາ</th>
                                 <th>ລວມ</th>
-                                <th style="width: 75px;"><a href="#" data-toggle="modal"
+                                <th style="width: 75px;"><a href="#" data-toggle="modal" style="color: white;"
                                         data-target="#exampleModalClear" class="clear">ລ້າງ</a></th>
                             </tr>
-
+                            <?php
+                                $no_ = 0;
+                                foreach($cart_data as $row){
+                                $amount += $row["qty"] * $row["price"];
+                                $total = 0;
+                                $total += $row["qty"] * $row["price"];
+                            ?>
                             <tr>
-                                <td>1</td>
+                                <td><?php echo $no_ += 1; ?></td>
+                                <?php
+                                    if($row['img_path'] == ''){
+                                    ?>
                                 <td>
-                                    <a href="<?php echo $path?>image/img_5f1beac4d3794.jpeg"><img
-                                            src="<?php echo $path?>image/img_5f1beac4d3794.jpeg" alt=" class=" img-circle
+                                    <a href="<?php echo $path?>image/image.jpeg"><img
+                                            src="<?php echo $path?>image/image.jpeg" alt=" class=" img-circle
                                             elevation-2 alt="" width="55px"></a>
                                 </td>
-                                <td>0311000101</td>
-                                <td>ຫູຟັງ Headset & Earphones Fantech HG13 CHIEF</td>
-                                <td>1 ກ່ອງ</td>
-                                <td>200,000.00</td>
-                                <td>200,000.00</td>
+                                <?php
+                                    }
+                                    else{
+                                    ?>
                                 <td>
-                                    <a href="#" data-toggle="modal" data-target="#exampleModalDelete_cookie"
-                                        class="fa fa-trash toolcolor btnDelete_cookie"></a>
+                                    <a href="<?php echo $path?>image/<?php echo $row['img_path'] ?>"><img
+                                            src="<?php echo $path?>image/<?php echo $row['img_path'] ?>" alt=""
+                                            class="img-circle elevation-2" alt="" width="55px"></a>
+                                </td>
+                                <?php
+                                    }
+                                    ?>
+                                <td><?php echo $row["pro_id"] ?></td>
+                                <td><?php echo $row["cate_name"] ?> <?php echo $row["cated_name"] ?>
+                                    <?php echo $row["brand_name"] ?>
+                                    <?php echo $row["pro_name"] ?> </td>
+                                <td><?php echo $row["qty"] ?> <?php echo $row["unit_name"] ?></td>
+                                <td><?php echo number_format($row["price"],2) ?></td>
+                                <td><?php echo number_format($total,2) ?></td>
+                                <td>
+                                    <a href="#" class="fa fa-trash toolcolor btnDelete_cookie"></a>
                                 </td>
                             </tr>
-
+                            <?php
+                                }
+                            ?>
                         </table>
                     </div>
+                    <?php
+                    }
+                    else{
+                        echo'
+                        <div align="center">
+                            <hr size="1" style="width: 90%;"/>
+                                ຍັງບໍ່ມີຂໍ້ມູນ
+                            <hr size="1" style="width: 90%;"/>
+                        </div>
+                    ';
+                    }
+                    ?>
                     <div class="col-md-12" align="right">
                         <br>
-                        <h5 style="color: #CE3131;">ມູນຄ່າ: 200,000.00 LAK</h5>
-                        <input type="hidden" name="amount" id="amount" value="">
+                        <h5 style="color: #CE3131;">ມູນຄ່າ: <?php echo number_format($amount,2) ?></h5>
+                        <input type="hidden" name="amount" id="amount" value="<?php echo $amount ?>">
                     </div>
 
                 </form>
@@ -175,7 +269,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ຍົກເລີກ</button>
-                    <button type="submit" name="btnclear_form" id="btnclear_form"
+                    <button type="submit" name="btnclear_Order" id="btnclear_Order"
                         class="btn btn-outline-danger">ລ້າງລາຍການ <span class="" id="load_Clear"></span>
                     </button>
                 </div>
@@ -184,7 +278,7 @@
     </div>
 </form>
 <!-- modal form delete -->
-<form action="form" id="formDelete_cookie_one" method="POST" enctype="multipart/form-data">
+<form action="Order" id="formDelete_cookie_one" method="POST" enctype="multipart/form-data">
     <div class="modal fade" id="exampleModalDelete_cookie" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -196,7 +290,6 @@
                     </button>
                 </div>
                 <div class="modal-body" align="center">
-                    <input type="hidden" name="del_list_form_id" id="del_list_form_id">
                     ທ່ານຕ້ອງການລົບຂໍ້ມູນ ຫຼື ບໍ່ ?
                     <input type="hidden" id="cookie_pro_id" name="cookie_pro_id">
                 </div>
@@ -214,7 +307,8 @@
 </form>
 
 <!-- modal form add -->
-<form action="Order" id="Form_Add" method="POST" enctype="multipart/form-data">
+<form action="Order" id="Form_Add" method="POST" enctype="multipart/form-data" class="row g-3 needs-validation"
+    novalidate>
     <div class="modal fade" id="exampleModalUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -233,32 +327,29 @@
                             <div class="col-md-12 col-sm-6 form-control2">
                                 <img src="../../image/img_5f44c26b27f5c.jpg" id="output" width="100%" height="250">
                             </div>
-                            <i class="fas fa-check-circle "></i>
-                            <i class="fas fa-exclamation-circle "></i>
-                            <small class="">Error message</small>
                         </div>
-                        <div class="col-md-12 col-sm-6 form-control2">
+                        <div class="col-md-12 col-sm-6 form-group">
                             <label>ຈຳນວນ</label>
-                            <input type="number" min="0" name="qty" id="qty" placeholder="ຈຳນວນ" class="form-control">
-                            <i class="fas fa-check-circle "></i>
-                            <i class="fas fa-exclamation-circle "></i>
-                            <small class="">Error message</small>
+                            <input type="number" min="0" name="qty" id="qty" placeholder="ຈຳນວນ" class="form-control"
+                                required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນຈຳນວນ
+                            </div>
                         </div>
-                        <div class="col-md-12 col-sm-6 form-control2">
+                        <div class="col-md-12 col-sm-6 form-group">
                             <label>ລາຄາ</label>
-                            <input type="number" min="0" name="price" id="price" placeholder="ລາຄາ"
-                                class="form-control">
-                            <i class="fas fa-check-circle "></i>
-                            <i class="fas fa-exclamation-circle "></i>
-                            <small class="">Error message</small>
+                            <input type="number" min="0" name="price" id="price" placeholder="ລາຄາ" class="form-control"
+                                required>
+                            <div class="invalid-feedback">
+                                ກະລຸນາປ້ອນລາຄາ
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">ຍົກເລີກ</button>
-                    <button type="submit" name="btnUpdate" id="btnUpdate" class="btn btn-outline-success"
+                    <button type="submit" name="btnAddOrder" id="btnAddOrder" class="btn btn-outline-success"
                         onclick="">ເພີ່ມ
-                        <span class="" id="load_update"></span>
                     </button>
                 </div>
             </div>
@@ -267,9 +358,106 @@
 </form>
 <?php
  include (''.$path.'header-footer/footer.php');
+ if(isset($_GET['list'])=='null'){
+    echo'<script type="text/javascript">
+    swal("", "ກະລຸນາເພີ່ມລາຍການສັ່ງຊື້ກ່ອນ", "info");
+    </script>';
+}
+if(isset($_GET['save'])=='fail'){
+    echo'<script type="text/javascript">
+    swal("", "ບັນທຶກຂໍ້ມູນບໍ່ສຳເລັດ", "error");
+    </script>';
+  }
+  if(isset($_GET['save2'])=='success'){
+    echo'<script type="text/javascript">
+    swal("", "ບັນທຶກຂໍ້ມູນສຳເລັດ", "success");
+    </script>';
+  }
+  if(isset($_GET['product'])=='null'){
+    echo'<script type="text/javascript">
+    swal("", "ລະຫັດສິນຄ້າບໍ່ຖືກຕ້ອງ", "info");
+    </script>';
+  }
 ?>
 <script>
 $(function() {
     $('#table').bootstrapTable();
 });
+</script>
+<script>
+$(document).ready(function() {
+    $(document).on("click", "#table tbody tr", function() {
+        $('.click').on('click', function() {
+            // $('#table').bootstrapTable();
+            $('#exampleModalUpdate').modal('show');
+            $tr = $(this).closest('tr');
+            var data = $tr.children("td").map(function() {
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+            $('#pro_id_order').val(data[4]);
+            if (data[1] === '') {
+                document.getElementById("output").src = ('../../image/camera.jpg');
+            } else {
+                document.getElementById("output").src = ('../../image/' + data[1]);
+            }
+        });
+    });
+});
+</script>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+})();
+</script>
+<script>
+// function modal_update() {
+$(document).ready(function() {
+    $('.btnDelete_cookie').on('click', function() {
+        // $('#table').bootstrapTable();
+        $('#exampleModalDelete_cookie').modal('show');
+        $tr = $(this).closest('tr');
+        var data = $tr.children("td").map(function() {
+            return $(this).text();
+        }).get();
+
+        console.log(data);
+        $('#cookie_pro_id').val(data[2]);
+    });
+});
+// }
+</script>
+<script>
+loadorder_bill();
+
+function loadorder_bill() {
+    $.ajax({
+        url: "order_id.php",
+        success: function(result) {
+            $('#order_id').val(result); //insert text of test.php into your div
+            $('.order_id').text(result); //insert text of test.php into your div
+            setTimeout(function() {
+                loadorder_bill(); //this will send request again and again;
+            }, 2000);
+        }
+    });
+}
 </script>

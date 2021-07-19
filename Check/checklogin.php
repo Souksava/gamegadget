@@ -39,7 +39,7 @@
                  else{
                      while($user = mysqli_fetch_array($resultget))
                      {                       
-                        $_SESSION['ses_id'] = session_id();
+                        $_SESSION['game_gadget_customer_ses_id'] = session_id();
                         $_SESSION['cus_id'] = $user['cus_id'];
                         $_SESSION['email'] = $user['email'];
                         $_SESSION['cus_name'] = $user['cus_name'];

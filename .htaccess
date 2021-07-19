@@ -54,13 +54,15 @@ RewriteRule ^Administrator/User/Management/Product?$ Administrator/User/Manageme
 RewriteRule ^Administrator/User/Management/Rate?$ Administrator/User/Management/rate.php
 RewriteRule ^Administrator/User/Order/Order?$ Administrator/User/Order/order.php
 RewriteRule ^Administrator/User/Order/Import?$ Administrator/User/Order/import.php
+RewriteRule ^Administrator/User/Order/ReportBillOrder?$ Administrator/User/Order/reportbill.php
+RewriteRule ^Administrator/User/Order/Acception?$ Administrator/User/Order/acception.php
 RewriteRule ^Administrator/User/Service/Online?$ Administrator/User/Service/online.php
 RewriteRule ^Administrator/User/Service/Sell?$ Administrator/User/Service/sell.php
 RewriteRule ^Administrator/User/Service/Bill?$ Administrator/User/Service/bill.php
 
 
 
-
+RewriteRule ^Administrator/Admin/Accept/Accept?$ Administrator/Admin/Accept/accept.php
 RewriteRule ^Administrator/Admin/Main?$ Administrator/Admin/Main.php
 
 

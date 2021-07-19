@@ -3122,7 +3122,7 @@ body {
 .shopping-cart .total-amount .left .checkbox label::after {
 	position: absolute;
 	content: "\f00c";
-	font-family: "Fontawesome","Noto Sans Lao";
+	font-family: "Fontawesome";
 	left: 0;
 	top: 0;
 	width: 22px;
@@ -3527,7 +3527,7 @@ body {
 .shop.login .login-form .checkbox label::after {
 	position: absolute;
 	content: "\f00c";
-	font-family: "Fontawesome","Noto Sans Lao";
+	font-family: "Fontawesome";
 	width: 12px;
 	height: 12px;
 	line-height: 23px;

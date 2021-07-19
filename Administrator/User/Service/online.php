@@ -11,7 +11,7 @@ tr {
 }
 </style>
 <!-- modal selldetail -->
-<form action="Confirm" id="form_confirm" method="POST" target="_blank">
+<form action="Online" id="form_confirm" method="POST">
     <div class="modal fade" id="exampleModalfetch" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">
@@ -23,71 +23,27 @@ tr {
                     </button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" name="id" id="id">
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
-                            <div class="table-responsive2" style="text-align: center;">
-                                <table class="table font12" style="width: 750px">
-                                    <tr>
-                                        <th style="width: 30px;">#</th>
-                                        <th>ສິນຄ້າ</th>
-                                        <th>ລະຫັດສິນຄ້າ</th>
-                                        <th>ຊື່ສິນຄ້າ</th>
-                                        <th>ຈຳນວນ</th>
-                                        <th>ລາຄາ</th>
-                                        <th>ລວມ</th>
-                                    </tr>
-
-                                    <tr>
-                                        <td>1</td>
-                                        <td>
-                                            <a href="<?php echo $path?>image/img_5f1beac4d3794.jpeg"><img
-                                                    src="<?php echo $path?>image/img_5f1beac4d3794.jpeg" alt=" class="
-                                                    img-circle elevation-2 alt="" width="55px"></a>
-                                        </td>
-                                        <td>0311000101</td>
-                                        <td>ຫູຟັງ Headset & Earphones Fantech HG13 CHIEF</td>
-                                        <td>1 ກ່ອງ</td>
-                                        <td>200,000.00</td>
-                                        <td>200,000.00</td>
-                                    </tr>
-
-                                </table>
-                            </div>
-                            <div class="col-md-12" align="right">
-                                <br>
-                                <h5 style="color: #CE3131;">ມູນຄ່າ: 200,000.00 LAK</h5>
-                                <input type="hidden" name="amount" id="amount" value="">
+                            <input type="hidden" id="sell_iddetail" name="sell_iddetail">
+                            <div id="result_selldetail">
+                                <?php
+                                    include ($path."header-footer/loading.php");
+                                ?>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="card">
                                 <div class="card-header">
-                                    ລາຍລະອຽດລູກຄ້າ
+                                    ລູກຄ້າ
                                 </div>
                                 <div class="card-body">
-                                    <div align="center">
-                                        <a href="../../image/image.jpeg">
-                                            <img src="../../image/image.jpeg" class="img-circle elevation-2" alt=""
-                                                width="120px" />
-                                        </a>
-                                    </div>
-                                    <div>
-                                        <p>
-                                            ປະເພດການຈ່າຍ: ເງິນສົດ<br>
-                                            ເບີໂທລະສັບ: 020 5509 9269<br>
-                                            What's App: 020 5509 9269
-                                        </p>
-                                        <p>
-                                        <h3>ສະຖານທີຈັດສົ່ງ</h3>
-                                        ບ້ານ ດອນໜູນ ເມືອງໄຊທານີ ນະຄອນຫຼວງວຽງຈັນ
-                                        </p>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 form-group">
-                                            <label for="">ຄ່າສົ່ງ</label>
-                                            <input type="text" class="form-control" placeholder="ຄ່າສົ່ງ">
-                                        </div>
+                                    <input type="hidden" id="sell_id_cus" name="sell_id_cus">
+
+                                    <div id="result_customer">
+                                        <?php
+                                            include ($path."header-footer/loading.php");
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -106,6 +62,10 @@ tr {
     </div>
 </form>
 <div class="container-fluid font12">
+    <?php
+        $result_online = mysqli_query($conn,"select sell_id,cus_name,sell_date,sell_time,amount,s.status,status_cash,s.img_path,sell_type,cupon_key,cupon_price,place_deli,seen1 from sell s left join customers c on s.cus_id=c.cus_id WHERE status='ສັ່ງຊື້' order by sell_date desc;");
+        if(mysqli_num_rows($result_online) > 0){
+    ?>
     <div class="table-responsive">
         <table id="table" data-pagination="true" data-search="true" data-toolbar="#toolbar" data-advanced-search="true"
             data-click-to-select="true" data-id-table="advancedTable" data-show-columns="true" data-resizable="true"
@@ -115,7 +75,6 @@ tr {
                 </tr>
                 <th data-field="no" data-sortable="true">ລຳດັບ</th>
                 <th data-field="billno" data-sortable="true">ເລກທີບິນ</th>
-                <th data-field="emp_name" data-sortable="true">ພະນັກງານ</th>
                 <th data-field="customer" data-sortable="true">ລູກຄ້າ</th>
                 <th data-field="amount" data-sortable="true">ມູນຄ່າລວມ</th>
                 <th data-field="status" data-sortable="true">ສະຖານະ</th>
@@ -127,36 +86,79 @@ tr {
                 </tr>
             </thead>
             <tbody>
-                <tr id="btn_fetch" data-toggle="modal" data-target="#exampleModalfetch">
-                    <td>1</td>
-                    <td>79</td>
-                    <td>ນົບພະລັກ</td>
-                    <td>ເທບພະຈັນ</td>
-                    <td>200,000.00</td>
-                    <td>ສັ່ງຊື້</td>
-                    <td>ເງິນສົດ</td>
-                    <td>Online</td>
+                <?php
+                    $no_ = 0;
+                    foreach($result_online as $row){
+                        $no_ ++;
+                ?>
+                <tr class="btn_fetch" <?php if($row["seen1"] == 0){ echo"style='background-color: #DBF0F7;'";} ?>>
+                    <td><?php echo $no_; ?></td>
+                    <td><?php echo $row["sell_id"]; ?></td>
+                    <td><?php echo $row["cus_name"]; ?></td>
+                    <td><?php echo number_format($row["amount"],2); ?></td>
+                    <td><?php echo $row["status"]; ?></td>
+                    <td><?php echo $row["status_cash"]; ?></td>
+                    <td><?php echo $row["sell_type"]; ?></td>
                     <td>
                         <img src="../../image/image.jpeg" class="img-circle elevation-2" alt="" width="55px" />
                     </td>
-                    <td>29/06/2021 10:30:59</td>
+                    <td><?php echo date("d/m/Y",strtotime($row["sell_date"])); ?> <?php echo $row["sell_time"]; ?></td>
                     <td></td>
                 </tr>
+                <?php
+                    }
+                ?>
             </tbody>
         </table>
     </div>
+    <?php
+        }
+        else{
+            echo'
+            <div align="center">
+                <hr size="1" style="width: 90%;"/>
+                    ຍັງບໍ່ມີຂໍ້ມູນ
+                <hr size="1" style="width: 90%;"/>
+            </div>
+        ';
+        }
+    ?>
 </div>
 <?php
     include ("../../header-footer/footer.php");
+    if(isset($_POST["btnConfirm"])){
+        $id = $_POST["sell_iddetail"];
+        $result = mysqli_query($conn,"update sell set status='ສັ່ງຊື້ສຳເລັດ' where sell_id='$id'");
+        if(!$result){
+            echo"<script>";
+            echo"window.location.href='Online?save=fail';";
+            echo"</script>";
+        }
+        else{
+            echo"<script>";
+            echo"window.location.href='Online?save2=success';";
+            echo"</script>";
+        }
+    }
+    if(isset($_GET['save'])=='fail'){
+        echo'<script type="text/javascript">
+        swal("", "ຢືນຢັນການສັ່ງຊື້ຜິດພາດ", "error");
+        </script>';
+      }
+      if(isset($_GET['save2'])=='success'){
+        echo'<script type="text/javascript">
+        swal("", "ຢືນຢັນການສັ່ງຊື້ສຳເລັດ", "success");
+        </script>';
+      }
 ?>
 <script>
 $(function() {
     $('#table').bootstrapTable();
 });
 </script>
+
 <script>
-$(document).ready(function() {
-    $('#btn_fetch').on('click', function() {
+    $(document).on('click', '.btn_fetch', function() {
         $('#exampleModalfetch').modal('show');
         $tr = $(this).closest('tr');
         var data = $tr.children("td").map(function() {
@@ -164,8 +166,53 @@ $(document).ready(function() {
         }).get();
 
         console.log(data);
-
-        $('#id').val(data[1]);
+        $('#sell_iddetail').val(data[1]);
+        $('#sell_id_cus').val(data[1]);
     });
+
+</script>
+
+<script>
+$(document).ready(function() {
+    load_data_selldetail("");
+    load_data_customerdetail("");
+
+
+    function load_data_selldetail(query) {
+        $.ajax({
+            url: "fetch_selldetail.php",
+            method: "POST",
+            data: {
+                query: query
+            },
+            success: function(data) {
+                $("#result_selldetail").html(data);
+            }
+        });
+    }
+    function load_data_customerdetail(query) {
+        $.ajax({
+            url: "fetch_customer.php",
+            method: "POST",
+            data: {
+                query: query
+            },
+            success: function(data) {
+                $("#result_customer").html(data);
+            }
+        });
+    }
+    $(document).on('click', '.btn_fetch', function() {
+        var id_sell = $("#sell_iddetail").val();
+        var id_cus = $("#sell_id_cus").val();
+        if (id_sell != "" && id_cus != "") {
+            load_data_selldetail(id_sell);
+            load_data_customerdetail(id_cus);
+        } else {
+            load_data_selldetail("");
+            load_data_customerdetail("");
+        }
+    });
+
 });
 </script>

@@ -99,7 +99,7 @@ require 'config.php';
 
                                 <?php 
                                         
-                                        if(isset($_SESSION['ses_id']) != ''){
+                                        if(isset($_SESSION['game_gadget_customer_ses_id']) != ''){
                                     ?>
                                 <li><i class="ti-user"></i> <a href="../Login/Login">ບັນຊີຂອງຂ້ອຍ</a></li>
                                 <li><i class="ti-power-off"></i><a href="../Check/Logout">ອອກຈາກລະບົບ</a></li>
@@ -158,7 +158,7 @@ require 'config.php';
                     </div>
                     <div class="col-lg-2 col-md-3 col-12 font12">
                         <?php 
-							if(isset($_SESSION['ses_id']) != ''){
+							if(isset($_SESSION['game_gadget_customer_ses_id']) != ''){
 							$cus_id = $_SESSION['cus_id'];
 							$sqlsumlist = "select sum((p.price-promotion) * l.qty) as amount,count(l.pro_id) as countorder from listselldetail l left join product p on l.pro_id=p.pro_id where l.cus_id = '$cus_id';";
 							$resultsumlist = mysqli_query($conn,$sqlsumlist);               
@@ -347,7 +347,7 @@ require 'config.php';
 							}
 						}
 
-						if(isset($_SESSION['ses_id']) == ''){
+						if(isset($_SESSION['game_gadget_customer_ses_id']) == ''){
 						?>
                         <div class="right-bar">
                             <!-- Search Form -->
@@ -408,7 +408,7 @@ require 'config.php';
     <!--/ End Header -->
     <?php
 
-    if(isset($_SESSION['ses_id']) != "") {
+    if(isset($_SESSION['game_gadget_customer_ses_id']) != "") {
 
     ?>
     <div class="container font18" align="center" style="margin-top: 20px;">

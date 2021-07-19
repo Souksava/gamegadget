@@ -124,22 +124,22 @@ class obj{
                 echo"</script>";
             }
             else{ // ຖ້າວ່າໄອດີບໍ່ຕົງກັນໃຫ້ເພີ່ມຂໍ້ມູນເຂົ້າໃນຄຸກກີ້
-                $getin = mysqli_query($conn,"SELECT pro_id,pro_name,qty,price,p.cate_id,cate_name,p.unit_id,unit_name,p.brand_id,brand_name,p.size_id,size_name,qty_alert,img FROM product p LEFT JOIN category c ON p.cate_id=c.cate_id LEFT JOIN unit u ON p.unit_id=u.unit_id LEFT JOIN brand b ON p.brand_id=b.brand_id LEFT JOIN size s ON p.size_id=s.size_id WHERE pro_id = '$pro_id';");
+                $getin = mysqli_query($conn,"SELECT pro_id,pro_name,qty,price,p.cated_id,cated_name,cate_name,p.unit_id,unit_name,p.brand_id,brand_name,qtyalert,p.img_path FROM product p LEFT JOIN categorydetail c ON p.cated_id=c.cated_id LEFT JOIN category ty ON c.cate_id=ty.cate_id LEFT JOIN unit u ON p.unit_id=u.unit_id LEFT JOIN brand b ON p.brand_id=b.brand_id WHERE p.pro_id = '$pro_id';");
                 $get_info = mysqli_fetch_array($getin,MYSQLI_ASSOC);
                 $pro_name = $get_info['pro_name'];
                 $cate_name = $get_info['cate_name'];
+                $cated_name = $get_info['cated_name'];
                 $unit_name = $get_info['unit_name'];
                 $brand_name = $get_info['brand_name'];
-                $size_name = $get_info['size_name'];
-                $img = $get_info['img'];
+                $img_path = $get_info['img_path'];
                 $item_array = [//ເພີ່ມຂໍ້ມູນທີ່ຮັບມາຈາກຄີບອດເຂົ້າໄວ້ໃນຕົວປ່ຽນອາເລ $item_array
                     "pro_id" => $pro_id,
-                    "img" => $img,
+                    "img_path" => $img_path,
                     "pro_name" => $pro_name,
                     "unit_name" => $unit_name,
+                    "cated_name" => $cated_name,
                     "cate_name" => $cate_name,
                     "brand_name" => $brand_name,
-                    "size_name" => $size_name,
                     "qty" => $qty,
                     "price" => $price
                 ];
@@ -185,10 +185,15 @@ class obj{
             }
         }
     }
-    public static function save_order($order_id,$emp_id,$sup_id){
+    public static function save_order($order_id,$emp_id,$sup_id,$amount,$rate_id){
         global $conn;
+        global $Date;
+        global $Time;
         if(isset($_COOKIE['list_order'])){//ກວດສອບວ່າຄຸກກີ້ order ນັ້ນມີຄ່າຫຼືບໍ່
-            $result = mysqli_query($conn,"call insert_order('$order_id','$emp_id','$sup_id')");
+            $result_rate = mysqli_query($conn,"select * from rate where rate_id='$rate_id'");
+            $get_rate = mysqli_fetch_array($result_rate,MYSQLI_ASSOC);
+            $rate = $get_rate["rate_buy"];
+            $result = mysqli_query($conn,"insert into orders(order_id,emp_id,sup_id,amount,order_date,order_time,status,seen1,seen2,rate_id,rate_buy) values('$order_id','$emp_id','$sup_id','$amount','$Date','$Time','ຍັງບໍ່ອະນຸມັດ','0','0','$rate_id','$rate')");
             // mysqli_free_result($result);  
             // mysqli_next_result($conn);
             if(!$result){
@@ -203,7 +208,7 @@ class obj{
                     $pro_id = $data['pro_id'];
                     $qty = $data['qty'];
                     $price = $data['price'];
-                    $result2 = mysqli_query($conn,"call insert_order_detail('$pro_id','$qty','$price','$order_id')");
+                    $result2 = mysqli_query($conn,"insert into orderdetail(pro_id,qty,price,order_id) values('$pro_id','$qty','$price','$order_id')");
                     // mysqli_free_result($result2);  
                     // mysqli_next_result($conn);
                 }
@@ -246,22 +251,22 @@ class obj{
                 }
             }
             else{ // ຖ້າວ່າໄອດີບໍ່ຕົງກັນໃຫ້ເພີ່ມຂໍ້ມູນເຂົ້າໃນຄຸກກີ້
-                $getin = mysqli_query($conn,"SELECT pro_id,pro_name,qty,price,p.cate_id,cate_name,p.unit_id,unit_name,p.brand_id,brand_name,p.size_id,size_name,qty_alert,img FROM product p LEFT JOIN category c ON p.cate_id=c.cate_id LEFT JOIN unit u ON p.unit_id=u.unit_id LEFT JOIN brand b ON p.brand_id=b.brand_id LEFT JOIN size s ON p.size_id=s.size_id WHERE pro_id = '$pro_id';");
+                $getin = mysqli_query($conn,"SELECT pro_id,pro_name,qty,price,p.cated_id,cated_name,cate_name,p.unit_id,unit_name,p.brand_id,brand_name,qtyalert,p.img_path FROM product p LEFT JOIN categorydetail c ON p.cated_id=c.cated_id LEFT JOIN category ty ON c.cate_id=ty.cate_id LEFT JOIN unit u ON p.unit_id=u.unit_id LEFT JOIN brand b ON p.brand_id=b.brand_id WHERE pro_id = '$pro_id';");
                 $get_info = mysqli_fetch_array($getin,MYSQLI_ASSOC);
                 $pro_name = $get_info['pro_name'];
                 $cate_name = $get_info['cate_name'];
+                $cated_name = $get_info['cated_name'];
                 $unit_name = $get_info['unit_name'];
                 $brand_name = $get_info['brand_name'];
-                $size_name = $get_info['size_name'];
-                $img = $get_info['img'];
+                $img_path = $get_info['img_path'];
                 $item_array = [//ເພີ່ມຂໍ້ມູນທີ່ຮັບມາຈາກຄີບອດເຂົ້າໄວ້ໃນຕົວປ່ຽນອາເລ $item_array
                     "pro_id" => $pro_id,
-                    "img" => $img,
+                    "img_path" => $img_path,
                     "pro_name" => $pro_name,
                     "unit_name" => $unit_name,
+                    "cated_name" => $cated_name,
                     "cate_name" => $cate_name,
                     "brand_name" => $brand_name,
-                    "size_name" => $size_name,
                     "qty" => $qty,
                     "price" => $price,
                     "remark" => $remark
@@ -315,7 +320,9 @@ class obj{
     }
     public static function save_import($order_id,$emp_id,$sup_id,$import_no){
         global $conn;
-        $check_order = mysqli_query($conn,"select * from orders where order_id='$order_id'");
+        global $Date;
+        global $Time;
+        $check_order = mysqli_query($conn,"select * from orders where order_id='$order_id' and status='ອະນຸມັດ'");
         if(mysqli_num_rows($check_order) > 0){
             if(isset($_COOKIE['list_import'])){//ກວດສອບວ່າຄຸກກີ້ order ນັ້ນມີຄ່າຫຼືບໍ່
                 $cookie_data = $_COOKIE['list_import'];//ຕັ້ງຄ່າຄຸກກີ້ໃຫ້ເປັນ String
@@ -326,7 +333,7 @@ class obj{
                     $price = $data['price'];
                     $remark = $data['remark'];
                     // (imp_bill,order_id,sup_id,emp_id,pro_id,qty,price,remark)
-                    $result2 = mysqli_query($conn,"call insert_import('$import_no','$order_id','$sup_id','$emp_id','$pro_id','$qty','$price','$remark')");
+                    $result2 = mysqli_query($conn,"insert into imports(imp_bill,order_id,sup_id,emp_id,pro_id,qty,price,imp_date,imp_time,note) values('$import_no','$order_id','$sup_id','$emp_id','$pro_id','$qty','$price','$Date','$Time','$remark')");
                     mysqli_free_result($result2);  
                     mysqli_next_result($conn);
                     $update_product = mysqli_query($conn,"update product set qty=qty+'$qty' where pro_id='$pro_id'");
