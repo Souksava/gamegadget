@@ -54,16 +54,70 @@ RewriteRule ^Administrator/User/Management/Product?$ Administrator/User/Manageme
 RewriteRule ^Administrator/User/Management/Rate?$ Administrator/User/Management/rate.php
 RewriteRule ^Administrator/User/Order/Order?$ Administrator/User/Order/order.php
 RewriteRule ^Administrator/User/Order/Import?$ Administrator/User/Order/import.php
-RewriteRule ^Administrator/User/Order/ReportBillOrder?$ Administrator/User/Order/reportbill.php
 RewriteRule ^Administrator/User/Order/Acception?$ Administrator/User/Order/acception.php
+RewriteRule ^Administrator/User/Order/ReportBillOrder?$ Administrator/User/Order/billorder.php
 RewriteRule ^Administrator/User/Service/Online?$ Administrator/User/Service/online.php
 RewriteRule ^Administrator/User/Service/Sell?$ Administrator/User/Service/sell.php
 RewriteRule ^Administrator/User/Service/Bill?$ Administrator/User/Service/bill.php
 
 
 
+
+RewriteRule ^Administrator/User/Report/ReportEmployee?$ Administrator/User/Report/Reportemployee.php
+RewriteRule ^Administrator/User/Report/PDF-Employee?$ Administrator/User/Report/pdf_employee.php
+RewriteRule ^Administrator/User/Report/Excel-Employee?$ Administrator/User/Report/excel_employee.php
+RewriteRule ^Administrator/User/Report/ReportCustomer?$ Administrator/User/Report/reportcustomer.php
+RewriteRule ^Administrator/User/Report/PDF-Customer?$ Administrator/User/Report/pdf_customer.php
+RewriteRule ^Administrator/User/Report/Excel-Customer?$ Administrator/User/Report/excel_customer.php
+RewriteRule ^Administrator/User/Report/ReportProduct?$ Administrator/User/Report/reportproduct.php
+RewriteRule ^Administrator/User/Report/PDF-Product?$ Administrator/User/Report/pdf_product.php
+RewriteRule ^Administrator/User/Report/Excel-Product?$ Administrator/User/Report/excel_product.php
+RewriteRule ^Administrator/User/Report/ReportBestSell?$ Administrator/User/Report/reportbestsell.php
+RewriteRule ^Administrator/User/Report/PDF-BestSell?$ Administrator/User/Report/pdf_bestsell.php
+RewriteRule ^Administrator/User/Report/Excel-BestSell?$ Administrator/User/Report/excel_bestsell.php
+RewriteRule ^Administrator/User/Report/ReportImport?$ Administrator/User/Report/reportimport.php
+RewriteRule ^Administrator/User/Report/PDF-Import?$ Administrator/User/Report/pdf_import.php
+RewriteRule ^Administrator/User/Report/Excel-Import?$ Administrator/User/Report/excel_import.php
+RewriteRule ^Administrator/User/Report/ReportSell?$ Administrator/User/Report/reportsell.php
+RewriteRule ^Administrator/User/Report/PDF-Sell?$ Administrator/User/Report/pdf_sell.php
+RewriteRule ^Administrator/User/Report/Excel-Sell?$ Administrator/User/Report/excel_sell.php
+RewriteRule ^Administrator/User/Report/ReportOrder?$ Administrator/User/Report/reportorder.php
+RewriteRule ^Administrator/User/Report/PDF-Order?$ Administrator/User/Report/pdf_order.php
+RewriteRule ^Administrator/User/Report/Excel-Order?$ Administrator/User/Report/excel_order.php
+RewriteRule ^Administrator/User/Report/Bill?$ Administrator/User/Report/bill.php
+RewriteRule ^Administrator/User/Report/BillOrder?$ Administrator/User/Report/billorder.php
+
+
+
+
+
 RewriteRule ^Administrator/Admin/Accept/Accept?$ Administrator/Admin/Accept/accept.php
 RewriteRule ^Administrator/Admin/Main?$ Administrator/Admin/Main.php
+
+
+RewriteRule ^Administrator/Admin/Report/ReportEmployee?$ Administrator/Admin/Report/Reportemployee.php
+RewriteRule ^Administrator/Admin/Report/PDF-Employee?$ Administrator/Admin/Report/pdf_employee.php
+RewriteRule ^Administrator/Admin/Report/Excel-Employee?$ Administrator/Admin/Report/excel_employee.php
+RewriteRule ^Administrator/Admin/Report/ReportCustomer?$ Administrator/Admin/Report/reportcustomer.php
+RewriteRule ^Administrator/Admin/Report/PDF-Customer?$ Administrator/Admin/Report/pdf_customer.php
+RewriteRule ^Administrator/Admin/Report/Excel-Customer?$ Administrator/Admin/Report/excel_customer.php
+RewriteRule ^Administrator/Admin/Report/ReportProduct?$ Administrator/Admin/Report/reportproduct.php
+RewriteRule ^Administrator/Admin/Report/PDF-Product?$ Administrator/Admin/Report/pdf_product.php
+RewriteRule ^Administrator/Admin/Report/Excel-Product?$ Administrator/Admin/Report/excel_product.php
+RewriteRule ^Administrator/Admin/Report/ReportBestSell?$ Administrator/Admin/Report/reportbestsell.php
+RewriteRule ^Administrator/Admin/Report/PDF-BestSell?$ Administrator/Admin/Report/pdf_bestsell.php
+RewriteRule ^Administrator/Admin/Report/Excel-BestSell?$ Administrator/Admin/Report/excel_bestsell.php
+RewriteRule ^Administrator/Admin/Report/ReportImport?$ Administrator/Admin/Report/reportimport.php
+RewriteRule ^Administrator/Admin/Report/PDF-Import?$ Administrator/Admin/Report/pdf_import.php
+RewriteRule ^Administrator/Admin/Report/Excel-Import?$ Administrator/Admin/Report/excel_import.php
+RewriteRule ^Administrator/Admin/Report/ReportSell?$ Administrator/Admin/Report/reportsell.php
+RewriteRule ^Administrator/Admin/Report/PDF-Sell?$ Administrator/Admin/Report/pdf_sell.php
+RewriteRule ^Administrator/Admin/Report/Excel-Sell?$ Administrator/Admin/Report/excel_sell.php
+RewriteRule ^Administrator/Admin/Report/ReportOrder?$ Administrator/Admin/Report/reportorder.php
+RewriteRule ^Administrator/Admin/Report/PDF-Order?$ Administrator/Admin/Report/pdf_order.php
+RewriteRule ^Administrator/Admin/Report/Excel-Order?$ Administrator/Admin/Report/excel_order.php
+RewriteRule ^Administrator/Admin/Report/Bill?$ Administrator/Admin/Report/bill.php
+RewriteRule ^Administrator/Admin/Report/BillOrder?$ Administrator/Admin/Report/billorder.php
 
 
 

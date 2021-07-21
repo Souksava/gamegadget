@@ -42,7 +42,7 @@
                 <tbody>
                     <?php 
                   $no_ = 0;
-                  $select_product = mysqli_query($conn,"select order_id,emp_name,company,amount,order_date,order_time,o.status,seen2 from orders o left join employees e on o.emp_id=e.emp_id left join suppliers s  on o.sup_id=s.sup_id order by order_date desc");
+                  $select_product = mysqli_query($conn,"select order_id,emp_name,company,amount,order_date,order_time,o.status,seen2,rate_id from orders o left join employees e on o.emp_id=e.emp_id left join suppliers s  on o.sup_id=s.sup_id order by order_date desc");
                   foreach($select_product as $row){
                   $no_ ++;
             ?>
@@ -50,7 +50,7 @@
                         <td><?php echo $no_; ?></td>
                         <td><?php echo $row["order_id"] ?></td>
                         <td><?php echo $row["company"] ?></td>
-                        <td><?php echo number_format($row["amount"],2) ?></td>
+                        <td><?php echo number_format($row["amount"],2) ?> <?php echo $row["rate_id"] ?></td>
                         <td><?php echo $row["emp_name"] ?></td>
                         <td><?php echo date("d/m/Y",strtotime($row["order_date"])) ?></td>
                         <td><?php echo $row["order_time"] ?></td>

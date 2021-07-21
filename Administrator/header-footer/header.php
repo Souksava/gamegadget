@@ -122,8 +122,55 @@ if(isset($_POST['sup_id_import'])){
                     <a class="nav-link"><?php echo $title; ?></a>
                 </li>
             </ul>
-        </nav>
+            <?php
+            if($title == "ສ້າງລາຍງານພະນັກງານ"){
+                echo'
+                    <div class="form-inline ml-3">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar" type="search" name="search" id="search"
+                                placeholder="ຄົ້ນຫາ" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ';
+            }
+            if($title == "ສ້າງລາຍງານລູກຄ້າ"){
+                echo'
+                    <div class="form-inline ml-3">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar" type="search" name="search" id="search"
+                                placeholder="ຄົ້ນຫາ" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ';
+            }
+            if($title == "ສ້າງລາຍງານສິນຄ້າ"){
+                echo'
+                    <div class="form-inline ml-3">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control form-control-navbar" type="search" name="search" id="search"
+                                placeholder="ຄົ້ນຫາ" aria-label="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-navbar" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ';
+            }
 
+        ?>
+        </nav>
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4 font14">
             <!-- Brand Logo -->
@@ -196,7 +243,7 @@ if(isset($_POST['sup_id_import'])){
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-employee" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportEmployee" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນພະນັກງານ</p>
                                     </a>
@@ -204,7 +251,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-customer" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportCustomer" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນລູກຄ້າ</p>
                                     </a>
@@ -212,7 +259,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-supplier" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportProduct" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນສິນຄ້າ</p>
                                     </a>
@@ -220,7 +267,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportOrder" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນການສັ່ງຊື້</p>
                                     </a>
@@ -228,7 +275,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportImport" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນການນຳເຂົ້າ</p>
                                     </a>
@@ -236,7 +283,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportSell" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນການຂາຍ</p>
                                     </a>
@@ -244,25 +291,9 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportBestSell" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານສິນຄ້າຂາຍດີ</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
-                                        <i class="far fas fa-book nav-icon"></i>
-                                        <p>ພິມໃບບິນການຂາຍ</p>
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
-                                        <i class="far fas fa-book nav-icon"></i>
-                                        <p>ພິມໃບບິນການສັ່ງຊື້</p>
                                     </a>
                                 </li>
                             </ul>
@@ -417,7 +448,7 @@ if(isset($_POST['sup_id_import'])){
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-employee" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportEmployee" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນພະນັກງານ</p>
                                     </a>
@@ -425,7 +456,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-customer" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportCustomer" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນລູກຄ້າ</p>
                                     </a>
@@ -433,7 +464,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-supplier" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportProduct" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນສິນຄ້າ</p>
                                     </a>
@@ -441,7 +472,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportOrder" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນການສັ່ງຊື້</p>
                                     </a>
@@ -449,7 +480,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportImport" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນການນຳເຂົ້າ</p>
                                     </a>
@@ -457,7 +488,7 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportSell" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານຂໍ້ມູນການຂາຍ</p>
                                     </a>
@@ -465,13 +496,13 @@ if(isset($_POST['sup_id_import'])){
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?php echo $links ?>Report/report-product" class="nav-link">
+                                    <a href="<?php echo $links ?>Report/ReportBestSell" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
                                         <p>ສ້າງລາຍງານສິນຄ້າຂາຍດີ</p>
                                     </a>
                                 </li>
                             </ul>
-                            <ul class="nav nav-treeview">
+                            <!-- <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="<?php echo $links ?>Report/report-product" class="nav-link">
                                         <i class="far fas fa-book nav-icon"></i>
@@ -486,7 +517,7 @@ if(isset($_POST['sup_id_import'])){
                                         <p>ພິມໃບບິນການສັ່ງຊື້</p>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> -->
                         <li class="nav-item">
                             <a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal">
                                 <i class="nav-icon fas fa-power-off"></i>
