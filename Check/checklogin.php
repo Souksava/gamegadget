@@ -6,9 +6,8 @@
     $pass = $_POST['pass'];
      //$pass = md5($_POST['pass']);
 
-
-    $sql1 = "select * from customers where email='$email' and pass='$pass';";
-    $resultck = mysqli_query($conn, $sql1);
+     $pass = md5($pass);
+     $resultck = mysqli_query($conn, "call login_customer('$email','$pass')");
    //$num1 = MYSQLI_NUM_ROWS($sql1);
          if($email == "")
          {
@@ -30,14 +29,12 @@
              }
              else 
              {
-                 $sql = "select * from customers where email = '$email' and pass = '$pass';";
-                 $resultget = mysqli_query($conn, $sql);
                  
-                 if(mysqli_num_rows($resultget) <= 0){
+                 if(mysqli_num_rows($resultck) <= 0){
                      echo"<meta http-equiv-'refress' content='1;URL=../Login/Login'>";
                  }
                  else{
-                     while($user = mysqli_fetch_array($resultget))
+                     while($user = mysqli_fetch_array($resultck))
                      {                       
                         $_SESSION['game_gadget_customer_ses_id'] = session_id();
                         $_SESSION['cus_id'] = $user['cus_id'];

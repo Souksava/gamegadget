@@ -198,13 +198,16 @@ require '../Login/config.php';
                     <div class="col mb-4">
                         <div class="card">
                             <div class="card-body">
-                                <h5 align="center" class="card-title" style="font-family: 'Noto Sans Lao,Arial';">ເລືອກທີ່ຢູ່ໃນການຈັດສົ່ງສິນຄ້າ</h5>
-                                <form action="Payment" method="POST" id="fomrpayment">
+                                <h5 align="center" class="card-title" style="font-family: 'Noto Sans Lao';">ເລືອກທີ່ຢູ່ໃນການຈັດສົ່ງສິນຄ້າ</h5>
+                                <form action="Payment" method="POST" id="fomrpayment" class="row g-3 needs-validation" novalidate>
                                     <p class="card-text">
                                         <div class="row">
                                             <div class="col-md-12 form-group">
                                                 <label>ເບີໂທລະສັບຕິດຕໍ່</label><br>
-                                                <input type="text" name="tel" class="form-control" placeholder=" ເບີໂທລະສັບຕິດຕໍ່">
+                                                <input type="text" name="tel" class="form-control" placeholder=" ເບີໂທລະສັບຕິດຕໍ່" required>
+												<div class="invalid-feedback">
+													ກະລຸນາປ້ອນເບີໂທລະສັບຕິດຕໍ່
+												</div>
                                             </div>
                                             <div class="col-md-12 form-group">
                                                 <label>What's App</label><br>
@@ -212,11 +215,17 @@ require '../Login/config.php';
                                             </div>
                                             <div class="col-md-12 form-group">
                                                 <label>ຊ່ອງທາງການຕິດຕໍ່ເພີ່ມເຕີມ</label><br>
-                                                <input type="text" name="tel_more" class="form-control" placeholder=" ຊ່ອງທາງການຕິດຕໍ່ເພີ່ມເຕີມ">
+                                                <input type="text" name="tel_more" class="form-control" placeholder=" ຊ່ອງທາງການຕິດຕໍ່ເພີ່ມເຕີມ" required>
+												<div class="invalid-feedback">
+													ກະລຸນາປ້ອນຊ່ອງທາງການຕິດຕໍ່ເພີ່ມເຕີມ
+												</div>
                                             </div>
                                             <div class="col-md-12 form-group">
                                                 <label>ສະຖານທີ່ຈັດສົ່ງ</label><br>
-                                                <textarea name="address" id="" cols="10" rows="5" placeholder=" ບ້ານ xxxxx ຮ່ອມ xx ເມືອງ xxxxx ແຂວງ xxxxxxx" max="300"></textarea>
+                                                <textarea name="address" id="" cols="10" rows="5" placeholder=" ບ້ານ xxxxx ຮ່ອມ xx ເມືອງ xxxxx ແຂວງ xxxxxxx" max="300" required></textarea>
+												<div class="invalid-feedback">
+													ກະລຸນາປ້ອນສະຖານທີ່ຈັດສົ່ງ
+												</div>
                                             </div>
                                             <!-- <div class="col-md-12 form-group">
                                                 <label>ຄູປ໋ອງສ່ວນລົດ</label><br>
@@ -490,5 +499,27 @@ require '../Login/config.php';
 	<script src="../js/easing.js"></script>
 	<!-- Active JS -->
     <script src="../js/active.js"></script>
+	<script>
+		// Example starter JavaScript for disabling form submissions if there are invalid fields
+		(function() {
+			'use strict'
+
+			// Fetch all the forms we want to apply custom Bootstrap validation styles to
+			var forms = document.querySelectorAll('.needs-validation')
+
+			// Loop over them and prevent submission
+			Array.prototype.slice.call(forms)
+				.forEach(function(form) {
+					form.addEventListener('submit', function(event) {
+						if (!form.checkValidity()) {
+							event.preventDefault()
+							event.stopPropagation()
+						}
+
+						form.classList.add('was-validated')
+					}, false)
+				})
+		})()
+	</script>
 </body>
 </html>

@@ -250,10 +250,10 @@ require 'config.php';
                     <div class="row">
                         <div class="col-lg-3">
                             <div class="all-category">
-                                <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>ປະພດສິນຄ້າ</h3>
+                                <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>ປະເພດສິນຄ້າ</h3>
                                 <ul class="main-category">
                                     <?php 
-										$sqlcate = "select * from category order by cate_id asc;";
+										$sqlcate = "select * from category order by cate_id asc limit 0,13;";
 										$resultcate = mysqli_query($conn,$sqlcate);
 										while($rowcate = mysqli_fetch_array($resultcate,MYSQLI_ASSOC)){
 									?>

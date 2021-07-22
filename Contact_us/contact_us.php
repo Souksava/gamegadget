@@ -5,7 +5,7 @@ date_default_timezone_set("Asia/Bangkok");
 $datenow = time();
 $Date = date("Y-m-d",$datenow);
 $sqlshop = "select name,address,tel,email,img_path,date_shop,datediff('$Date',date_shop)/365 as year from shop;";
-$resultshop = mysqli_query($link,$sqlshop);
+$resultshop = mysqli_query($conn,$sqlshop);
 $rowshop = mysqli_fetch_array($resultshop,MYSQLI_ASSOC);
 require '../Login/config.php';
 ?>
@@ -92,7 +92,7 @@ require '../Login/config.php';
 						<div class="right-content font14">
 							<ul class="list-main">
                                 <?php 
-                                    if(isset($_SESSION['ses_id']) != ''){
+                                    if(isset($_SESSION['game_gadget_customer_ses_id']) != ''){
                                 ?>
                                     <li><i class="ti-user"></i> <a href="../Login/Login">ບັນຊີຂອງຂ້ອຍ</a></li>
                                     <li><i class="ti-power-off"></i><a href="../Check/Logout">ອອກຈາກລະບົບ</a></li>
@@ -149,13 +149,13 @@ require '../Login/config.php';
 					</div>
 					<div class="col-lg-2 col-md-3 col-12">
 					<?php 
-							if($_SESSION['ses_id'] != ''){
+							if(isset($_SESSION['game_gadget_customer_ses_id']) != ''){
 							$cus_id = $_SESSION['cus_id'];
 							$sqlsumlist = "select sum((p.price-promotion) * l.qty) as amount,count(l.pro_id) as countorder from listselldetail l left join product p on l.pro_id=p.pro_id where l.cus_id = '$cus_id';";
-							$resultsumlist = mysqli_query($link,$sqlsumlist);               
+							$resultsumlist = mysqli_query($conn,$sqlsumlist);               
 							$rowsumlist = mysqli_fetch_array($resultsumlist,MYSQLI_ASSOC);
 							$sqllistfbck = "select l.detail_id,l.pro_id,pro_name,l.color_id,l.qty,p.price,promotion,p.price-promotion as newprice,(promotion / p.price) * 100 as perzen,cate_name,cated_name,brand_name,unit_name,color_name,p.img_path from listselldetail l left join product p on l.pro_id=p.pro_id left join categorydetail d on p.cated_id=d.cated_id left join brand b on p.brand_id=b.brand_id left join unit u on p.unit_id=u.unit_id left join category c on d.cate_id=c.cate_id left join product_color o on l.color_id=o.color_id where l.cus_id = '$cus_id';";
-							$resultlistfbck = mysqli_query($link,$sqllistfbck);               
+							$resultlistfbck = mysqli_query($conn,$sqllistfbck);               
 							if(mysqli_num_rows($resultlistfbck) > 0){
 						?>
 						<div class="right-bar">
@@ -171,7 +171,7 @@ require '../Login/config.php';
 									<ul class="shopping-list">
 										<?php 
 										  $sqllistfb = "select l.detail_id,l.pro_id,pro_name,l.color_id,l.qty,p.price,promotion,p.price-promotion as newprice,(p.price-promotion) * l.qty as total,(promotion / p.price) * 100 as perzen,cate_name,cated_name,brand_name,unit_name,color_name,p.img_path from listselldetail l left join product p on l.pro_id=p.pro_id left join categorydetail d on p.cated_id=d.cated_id left join brand b on p.brand_id=b.brand_id left join unit u on p.unit_id=u.unit_id left join category c on d.cate_id=c.cate_id left join product_color o on l.color_id=o.color_id where l.cus_id = '$cus_id';";
-										  $resultlistfb = mysqli_query($link,$sqllistfb);               
+										  $resultlistfb = mysqli_query($conn,$sqllistfb);               
 										  while($rowlistfb = mysqli_fetch_array($resultlistfb,MYSQLI_ASSOC)){
 										?>
 										<li>
@@ -239,14 +239,14 @@ require '../Login/config.php';
 							$user = $response->getGraphUser();
 							$fb_id = $user['id'];
 							$sqlcus_id = "select * from customers where fb_id='$fb_id';";
-							$resultcus_id = mysqli_query($link,$sqlcus_id);
+							$resultcus_id = mysqli_query($conn,$sqlcus_id);
 							$rowcus_id = mysqli_fetch_array($resultcus_id,MYSQLI_ASSOC);
 							$cus_idfb = $rowcus_id['cus_id'];				
 							$sqlsumlist = "select sum((p.price-promotion) * l.qty) as amount,count(l.pro_id) as countorder from listselldetail l left join product p on l.pro_id=p.pro_id where l.cus_id = '$cus_idfb';";
-							$resultsumlist = mysqli_query($link,$sqlsumlist);               
+							$resultsumlist = mysqli_query($conn,$sqlsumlist);               
 							$rowsumlist = mysqli_fetch_array($resultsumlist,MYSQLI_ASSOC);
 							$sqllistfbck = "select l.detail_id,l.pro_id,pro_name,l.color_id,l.qty,p.price,promotion,p.price-promotion as newprice,(promotion / p.price) * 100 as perzen,cate_name,cated_name,brand_name,unit_name,color_name,p.img_path from listselldetail l left join product p on l.pro_id=p.pro_id left join categorydetail d on p.cated_id=d.cated_id left join brand b on p.brand_id=b.brand_id left join unit u on p.unit_id=u.unit_id left join category c on d.cate_id=c.cate_id left join product_color o on l.color_id=o.color_id where l.cus_id = '$cus_idfb';";
-							$resultlistfbck = mysqli_query($link,$sqllistfbck);               
+							$resultlistfbck = mysqli_query($conn,$sqllistfbck);               
 							if(mysqli_num_rows($resultlistfbck) > 0){
 						?>
 						<div class="right-bar">
@@ -262,7 +262,7 @@ require '../Login/config.php';
 									<ul class="shopping-list">
 										<?php 
 										  $sqllistfb = "select l.detail_id,l.pro_id,pro_name,l.color_id,l.qty,p.price,promotion,p.price-promotion as newprice,(p.price-promotion) * l.qty as total,(promotion / p.price) * 100 as perzen,cate_name,cated_name,brand_name,unit_name,color_name,p.img_path from listselldetail l left join product p on l.pro_id=p.pro_id left join categorydetail d on p.cated_id=d.cated_id left join brand b on p.brand_id=b.brand_id left join unit u on p.unit_id=u.unit_id left join category c on d.cate_id=c.cate_id left join product_color o on l.color_id=o.color_id where l.cus_id = '$cus_idfb';";
-										  $resultlistfb = mysqli_query($link,$sqllistfb);               
+										  $resultlistfb = mysqli_query($conn,$sqllistfb);               
 										  while($rowlistfb = mysqli_fetch_array($resultlistfb,MYSQLI_ASSOC)){
 										?>
 										<li>
@@ -314,7 +314,7 @@ require '../Login/config.php';
 							}
 						}
 
-						if(isset($_SESSION['fb_access_token']) == '' and isset($_SESSION['ses_id']) == ''){
+						if(isset($_SESSION['fb_access_token']) == '' and isset($_SESSION['game_gadget_customer_ses_id']) == ''){
 						?>		
 						<div class="right-bar">
 							<!-- Search Form -->					
@@ -502,7 +502,7 @@ require '../Login/config.php';
 							<div class="center">
 							<?php 
 								$sqlcredit = "select * from credit_card";
-								$resultcredit = mysqli_query($link,$sqlcredit);
+								$resultcredit = mysqli_query($conn,$sqlcredit);
 								while($rowcredit = mysqli_fetch_array($resultcredit,MYSQLI_ASSOC)){
 							?>
 								&nbsp;&nbsp;&nbsp; <img src="../../GAME_GADGET_shop/image/<?php echo $rowcredit['img_path'] ?>" width="30px;" alt="#">

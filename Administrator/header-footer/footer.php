@@ -52,7 +52,84 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="<?php echo $path ?>dist/js/bootstrap-table-resizable.min.js"></script>
 <script src="<?php echo $path ?>dist/js/canvasjs.min.js">
 </script>
-
+<script type="text/javascript">
+<?php
+if($stt == 1){
+?>
+    function loadDocalert() {
+            setInterval(function(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("alert").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "<?php echo $path ?>header-footer/alert_manager.php", true);
+                xhttp.send();
+            },1000);
+        }
+        loadDocalert(); 
+<?php
+}
+if($stt == 1){
+?>
+  function loadDocalert2() {
+            setInterval(function(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("result_list").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "<?php echo $path ?>header-footer/fetch_list_manager.php", true);
+                xhttp.send();
+            },1000);
+        }
+        loadDocalert2(); 
+<?php
+}
+?>
+       
+</script>
+<script type="text/javascript">
+<?php
+if($stt == 2){
+?>
+    function loadDocalert() {
+            setInterval(function(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("alert").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "<?php echo $path ?>header-footer/alert_user.php", true);
+                xhttp.send();
+            },1000);
+        }
+        loadDocalert(); 
+<?php
+}
+if($stt == 2){
+?>
+  function loadDocalert2() {
+            setInterval(function(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("result_list").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "<?php echo $path ?>header-footer/fetch_list_user.php", true);
+                xhttp.send();
+            },1000);
+        }
+        loadDocalert2(); 
+<?php
+}
+?>
+       
+</script>
 </body>
 
 </html>

@@ -46,7 +46,7 @@
                   foreach($select_product as $row){
                   $no_ ++;
             ?>
-                    <tr class="click" <?php if($row["seen2"] == 0){ echo"style='background-color: #DBF0F7;'";} ?>>
+                    <tr class="click" <?php if($row["seen2"] == 0 && ($row["status"] == "ອະນຸມັດ" || $row["status"] == "ບໍ່ອະນຸມັດ")){ echo"style='background-color: #DBF0F7;'";} ?>>
                         <td><?php echo $no_; ?></td>
                         <td><?php echo $row["order_id"] ?></td>
                         <td><?php echo $row["company"] ?></td>

@@ -110,6 +110,7 @@ if(isset($_POST['sup_id_import'])){
     $obj->save_import(trim($_POST['order_id_import']),$_SESSION["emp_id"],trim($_POST['sup_id_import']),trim($_POST['import_no']));
 }
 ?>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 
     <div class="wrapper">
@@ -170,6 +171,50 @@ if(isset($_POST['sup_id_import'])){
             }
 
         ?>
+        <?php
+            if($stt == 1){
+        ?>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-danger navbar-badge" id="alert"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">ແຈ້ງເຕືອນ</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="<?php echo $links ?>Accept/Accept">
+                            <div id="result_list" style="overflow-y: scroll;height:120px;font-size: 14px;"></div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="<?php echo $links ?>Accept/Accept"
+                            class="dropdown-item dropdown-footer">ເບິ່ງລາຍການທັງໝົດ</a>
+                    </div>
+                </li>
+            </ul> &nbsp; &nbsp; &nbsp;
+            <?php
+            }
+            if($stt == 2){
+        ?>
+         <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-danger navbar-badge" id="alert"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">ແຈ້ງເຕືອນ</span>
+                        <div class="dropdown-divider"></div>
+                            <div id="result_list" style="overflow-y: scroll;height:120px;font-size: 14px;"></div>
+                        <div class="dropdown-divider"></div>
+                        <!-- <a href="<?php echo $links ?>Accept/Accept"
+                            class="dropdown-item dropdown-footer">ເບິ່ງລາຍການທັງໝົດ</a> -->
+                    </div>
+                </li>
+            </ul> &nbsp; &nbsp; &nbsp;
+        <?php
+            }
+        ?>
         </nav>
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4 font14">
@@ -185,14 +230,15 @@ if(isset($_POST['sup_id_import'])){
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?php echo $path ?>image/<?php echo $_SESSION["img_path"] ?>" class="img-circle elevation-2" alt="">
+                        <img src="<?php echo $path ?>image/<?php echo $_SESSION["img_path"] ?>"
+                            class="img-circle elevation-2" alt="">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block"><?php echo $_SESSION["emp_name"] ?></a>
                     </div>
                 </div>
                 <nav class="mt-2">
-                <?php
+                    <?php
                     if($stt == 1){
                 ?>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -216,13 +262,13 @@ if(isset($_POST['sup_id_import'])){
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="" class="nav-link">
-                              <i class="fas fa-shopping-cart nav-icon"></i>
+                                <i class="fas fa-shopping-cart nav-icon"></i>
                                 <p>
                                     ອະນຸມັດ
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
-                           
+
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="<?php echo $links ?>Accept/Accept" class="nav-link">
@@ -231,7 +277,7 @@ if(isset($_POST['sup_id_import'])){
                                     </a>
                                 </li>
                             </ul>
-                           
+
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
@@ -310,7 +356,7 @@ if(isset($_POST['sup_id_import'])){
                     <?php
                     }
                     ?>
-                <?php
+                    <?php
                     if($stt == 2){
                 ?>
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
@@ -382,7 +428,7 @@ if(isset($_POST['sup_id_import'])){
                         </li>
                         <li class="nav-item has-treeview">
                             <a href="" class="nav-link">
-                              <i class="fas fa-shopping-cart nav-icon"></i>
+                                <i class="fas fa-shopping-cart nav-icon"></i>
                                 <p>
                                     ສັ່ງຊື້ ແລະ ນຳເຂົ້າ
                                     <i class="fas fa-angle-left right"></i>
