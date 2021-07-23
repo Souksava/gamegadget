@@ -116,7 +116,7 @@ require '../config.php';
                     <div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
                         <div class="logo">
-							<a href="../Home"><img src="http://backend.gamegadgetlao.com/image/<?php echo $rowshop['img_path']; ?>" alt="" width="60%"></a>
+							<a href="../Home"><img src="../Administrator/image/<?php echo $rowshop['img_path']; ?>" alt="" width="60%"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
@@ -172,7 +172,7 @@ require '../config.php';
 										  while($rowlistfb = mysqli_fetch_array($resultlistfb,MYSQLI_ASSOC)){
 										?>
 										<li>
-											<a class="cart-img" href="#"><img src="http://backend.gamegadgetlao.com/image/<?php echo $rowlistfb['img_path']; ?>" style="width: 70px;height:70px;" alt="#"></a>
+											<a class="cart-img" href="#"><img src="../Administrator/image/<?php echo $rowlistfb['img_path']; ?>" style="width: 70px;height:70px;" alt="#"></a>
 											<h4><a href="#"><?php echo $rowlistfb['cate_name']; ?> <?php echo $rowlistfb['brand_name']; ?> <?php echo $rowlistfb['pro_name']; ?> <?php echo $rowlistfb['cated_name']; ?></a></h4>
 											<p class="quantity"><?php echo $rowlistfb['qty']; ?>x - <span class="amount"><?php echo number_format($rowlistfb['total'],2); ?></span></p>
 										</li>
@@ -291,8 +291,8 @@ require '../config.php';
 												<div class="single-product">
 													<div class="product-img">
 														<a href="../Product/Productdetail?id=<?php echo $rowprobrand['pro_id']; ?>">
-															<img class="default-img" src="http://backend.gamegadgetlao.com/image/<?php echo $rowprobrand['img_path']; ?>" style="width:300px;height:280px;" alt="">
-															<img class="hover-img" src="http://backend.gamegadgetlao.com/image/<?php echo $rowprobrand['img_path']; ?>" style="width:300px;height:280px;" alt="">
+															<img class="default-img" src="../Administrator/image/<?php echo $rowprobrand['img_path']; ?>" style="width:300px;height:280px;" alt="">
+															<img class="hover-img" src="../Administrator/image/<?php echo $rowprobrand['img_path']; ?>" style="width:300px;height:280px;" alt="">
 															<?php 
 																if($rowprobrand['promotion'] != 0){
 																	echo"<span class='out-of-stock'>ຫຼຸດ ".number_format($rowprobrand['persen'],2)."%</span>";
@@ -423,7 +423,7 @@ require '../config.php';
 						<!-- Single Widget -->
 						<div class="single-footer about">
 							<div class="logo">
-								<a href="../Home"><img src="http://backend.gamegadgetlao.com/image/<?php echo $rowshop['img_path'] ?>" width="80px;" alt=""></a>
+								<a href="../Home"><img src="../Administrator/image/<?php echo $rowshop['img_path'] ?>" width="80px;" alt=""></a>
 							</div>
 							<p class="text">ສະຖານທີ່ຕັ້ງ: <?php echo $rowshop['address'] ?></p>
 							<p class="call">ເບີໂທລະສັບຕິດຕໍ່: <span><a href="tel<?php echo $rowshop['tel'] ?>"><?php echo $rowshop['tel'] ?></a></span></p>
@@ -485,7 +485,7 @@ require '../config.php';
 								$resultcredit = mysqli_query($conn,$sqlcredit);
 								while($rowcredit = mysqli_fetch_array($resultcredit,MYSQLI_ASSOC)){
 							?>
-								&nbsp;&nbsp;&nbsp; <img src="http://backend.gamegadgetlao.com/image/<?php echo $rowcredit['img_path'] ?>" width="30px;" alt="#">
+								&nbsp;&nbsp;&nbsp; <img src="../Administrator/image/<?php echo $rowcredit['img_path'] ?>" width="30px;" alt="#">
 							<?php 
 								}
 							?>

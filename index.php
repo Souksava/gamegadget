@@ -121,7 +121,7 @@ require 'config.php';
                     <div class="col-lg-2 col-md-2 col-12">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="Home"><img src="../game_gadget_shop/image/<?php echo $rowshop['img_path']; ?>"
+                            <a href="Home"><img src="Administrator/image/<?php echo $rowshop['img_path']; ?>"
                                     alt="" width="100px"></a>
                         </div>
                         <!--/ End Logo -->
@@ -180,7 +180,7 @@ require 'config.php';
 										?>
                                         <li>
                                             <a class="cart-img" href="#"><img
-                                                    src="../game_gadget_shop/image/<?php echo $rowlistfb['img_path']; ?>"
+                                                    src="Administrator/image/<?php echo $rowlistfb['img_path']; ?>"
                                                     style="width: 70px;height:70px;" alt="#"></a>
                                             <h4><a href="#"><?php echo $rowlistfb['cate_name']; ?>
                                                     <?php echo $rowlistfb['brand_name']; ?>
@@ -258,7 +258,7 @@ require 'config.php';
 										while($rowcate = mysqli_fetch_array($resultcate,MYSQLI_ASSOC)){
 									?>
                                     <li><a href="#"><img
-                                                src="../game_gadget_shop/image/<?php echo $rowcate['img_path']; ?>"
+                                                src="Administrator/image/<?php echo $rowcate['img_path']; ?>"
                                                 width="15px;" alt=""> <?php echo $rowcate['cate_name']; ?> <i
                                                 class="fa fa-angle-right" aria-hidden="true"></i></a>
                                         <ul class="sub-category">
@@ -343,7 +343,7 @@ require 'config.php';
 					$rowcolors2 = mysqli_fetch_array($resultcolors2,MYSQLI_ASSOC);
 				?>
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="../game_gadget_shop/image/<?php echo $rowcolors2['img_path']; ?>"
+                    <img class="d-block w-100" src="Administrator/image/<?php echo $rowcolors2['img_path']; ?>"
                         width="100%" alt="">
                 </div>
                 <?php 
@@ -355,7 +355,7 @@ require 'config.php';
 							}
 				?>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="../game_gadget_shop/image/<?php echo $rowcolor2['img_path']; ?>"
+                    <img class="d-block w-100" src="Administrator/image/<?php echo $rowcolor2['img_path']; ?>"
                         width="100%" alt="">
                 </div>
                 <?php 
@@ -398,10 +398,10 @@ require 'config.php';
                             <div class="product-img">
                                 <a href="Product/Productdetail?id=<?php echo $rowshow['pro_id']; ?>">
                                     <img class="default-img"
-                                        src="../game_gadget_shop/image/<?php echo $rowshow['img_path']; ?>"
+                                        src="Administrator/image/<?php echo $rowshow['img_path']; ?>"
                                         style="width:300px;height:280px;" alt="">
                                     <img class="hover-img"
-                                        src="../game_gadget_shop/image/<?php echo $rowshow['img_path']; ?>"
+                                        src="Administrator/image/<?php echo $rowshow['img_path']; ?>"
                                         style="width:300px;height:280px;" alt="">
                                     <span class="out-of-stock">ຫຼຸດ
                                         <?php echo number_format($rowshow['persen'],2); ?>%</span>
@@ -474,7 +474,7 @@ require 'config.php';
 								?>
                                 <li class="nav-item"><a class="nav-link" data-toggle="tab"
                                         href="#<?php echo $rowbrand['brand_id'];?>" role="tab"><img
-                                            src="../game_gadget_shop/image/<?php echo $rowbrand['bimg_path'];?>"
+                                            src="Administrator/image/<?php echo $rowbrand['bimg_path'];?>"
                                             width="50px" height="50px" alt="First slide"></a></li>
                                 <?php 
 									}
@@ -506,10 +506,10 @@ require 'config.php';
                                                     <a
                                                         href="Product/Productdetail?id=<?php echo $rowprobrand['pro_id']; ?>">
                                                         <img class="default-img"
-                                                            src="../game_gadget_shop/image/<?php echo $rowprobrand['img_path']; ?>"
+                                                            src="Administrator/image/<?php echo $rowprobrand['img_path']; ?>"
                                                             style="width:300px;height:280px;" alt="#">
                                                         <img class="hover-img"
-                                                            src="../game_gadget_shop/image/<?php echo $rowprobrand['img_path']; ?>"
+                                                            src="Administrator/image/<?php echo $rowprobrand['img_path']; ?>"
                                                             style="width:300px;height:280px;" alt="#">
                                                         <?php 
 																if($rowprobrand['promotion'] != 0){
@@ -616,10 +616,10 @@ require 'config.php';
                             <div class="product-img">
                                 <a href="Product/Productdetail?id=<?php echo $rowshow2['pro_id']; ?>">
                                     <img class="default-img"
-                                        src="../game_gadget_shop/image/<?php echo $rowshow2['img_path']; ?>"
+                                        src="Administrator/image/<?php echo $rowshow2['img_path']; ?>"
                                         style="width:300px;height:280px;" alt="">
                                     <img class="hover-img"
-                                        src="../game_gadget_shop/image/<?php echo $rowshow2['img_path']; ?>"
+                                        src="Administrator/image/<?php echo $rowshow2['img_path']; ?>"
                                         style="width:300px;height:280px;" alt="">
                                     <span class="out-of-stock">ມາແຮງ</span>
                                 </a>
@@ -710,7 +710,7 @@ require 'config.php';
 						?>
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="list-image overlay">
-                                    <img src="../game_gadget_shop/image/<?php echo $rowsale['img_path']; ?>"
+                                    <img src="Administrator/image/<?php echo $rowsale['img_path']; ?>"
                                         style="width:230px;height:200px;" alt="">
                                     <a href="Basket/Basket?product=<?php echo $rowsale['pro_id']; ?>" class="buy"><i
                                             class="fa fa-shopping-bag"></i></a>
@@ -758,7 +758,7 @@ require 'config.php';
 						?>
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="list-image overlay">
-                                    <img src="../game_gadget_shop/image/<?php echo $rowbest['img_path']; ?>"
+                                    <img src="Administrator/image/<?php echo $rowbest['img_path']; ?>"
                                         style="width:230px;height:200px;" alt="">
                                     <a href="Basket/Baske?product=<?php echo $rowbest['pro_id']; ?>" class="buy"><i
                                             class="fa fa-shopping-bag"></i></a>
@@ -812,7 +812,7 @@ require 'config.php';
 						?>
                             <div class="col-lg-6 col-md-6 col-12">
                                 <div class="list-image overlay">
-                                    <img src="../game_gadget_shop/image/<?php echo $rowtop['img_path']; ?>"
+                                    <img src="Administrator/image/<?php echo $rowtop['img_path']; ?>"
                                         style="width:230px;height:200px;" alt="">
                                     <a href="Basket/Basket?product=<?php echo $rowtop['pro_id']; ?>" class="buy"><i
                                             class="fa fa-shopping-bag"></i></a>
@@ -907,7 +907,7 @@ require 'config.php';
                         <!-- Single Widget -->
                         <div class="single-footer about">
                             <div class="logo">
-                                <a href="Home"><img src="../game_gadget_shop/image/<?php echo $rowshop['img_title'] ?>"
+                                <a href="Home"><img src="Administrator/image/<?php echo $rowshop['img_title'] ?>"
                                         width="80px;" alt="#"></a>
                             </div>
                             <p class="text">ສະຖານທີ່ຕັ້ງ: <?php echo $rowshop['address'] ?></p>
@@ -971,7 +971,7 @@ require 'config.php';
 								while($rowcredit = mysqli_fetch_array($resultcredit,MYSQLI_ASSOC)){
 							?>
                                 &nbsp;&nbsp;&nbsp; <img
-                                    src="../game_gadget_shop/image/<?php echo $rowcredit['img_path'] ?>" width="30px;"
+                                    src="Administrator/image/<?php echo $rowcredit['img_path'] ?>" width="30px;"
                                     alt="#">
                                 <?php 
 								}
