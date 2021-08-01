@@ -210,7 +210,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="" class="">ຈຳນວນ</label>
-                            <input type="text" class="form-control" name="qty_update" id="qty_update" value=""
+                            <input type="number" class="form-control" name="qty_update" id="qty_update" value=""
                                 placeholder="ຈຳນວນ" required>
                             <div class="invalid-feedback">
                                 ກະລຸນາປ້ອນຈຳນວນ
@@ -286,7 +286,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="" class="">ເວລາຮັບປະກັນ</label>
-                            <input type="text" class="form-control" name="guarantee_update" id="guarantee_update"
+                            <input type="number" class="form-control" name="guarantee_update" id="guarantee_update"
                                 value="" placeholder="ເວລາຮັບປະກັນ" required>
                             <div class="invalid-feedback">
                                 ກະລຸນາເວລາຮັບປະກັນ
@@ -306,7 +306,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="" class="">ໂປຼໂມຊັນ ຫຼື ສ່ວນຫຼຸດ</label>
-                            <input type="text" name="promotion_update" id="promotion_update" class="form-control"
+                            <input type="number" name="promotion_update" id="promotion_update" class="form-control"
                                 value="" placeholder="ໂປຼໂມຊັນ ຫຼື ສ່ວນຫຼຸດ" required>
                             <div class="invalid-feedback">
                                 ກະລຸນາປ້ອນໂປຼໂມຊັນ
@@ -314,7 +314,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <label for="" class="">ເງື່ອນໄຂການສັ່ງຊື້</label>
-                            <input type="text" class="form-control" name="qtyalert_update" id="qtyalert_update" value=""
+                            <input type="number" class="form-control" name="qtyalert_update" id="qtyalert_update" value=""
                                 placeholder="ເງື່ອນໄຂການສັ່ງຊື້" required>
                             <div class="invalid-feedback">
                                 ກະລຸນາປ້ອນເງື່ອນໄຂການສັ່ງຊື້
@@ -389,6 +389,7 @@
                     <th class="display_none"></th>
                     <th class="display_none"></th>
                     <th class="display_none"></th>
+                    <th class="display_none"></th>
                 </tr>
             </thead>
             <tbody>
@@ -434,6 +435,7 @@
                     <td class="display_none"><?php echo $row["price"] ?></td>
                     <td class="display_none"><?php echo $row["guarantee"] ?></td>
                     <td class="display_none"><?php echo $row["type"] ?></td>
+                    <td class="display_none"><?php echo $row["promotion"] ?></td>
                 </tr>
                 <?php 
                 }
@@ -765,7 +767,7 @@ function modal_update() {
             $('#qty_update').val(data[8]);
             $('#pro_id_update').val(data[10]);
             $('#guarantee_update').val(data[20]);
-            $('#promotion_update').val(data[15]);
+            $('#promotion_update').val(data[22]);
             $('#qtyalert_update').val(data[17]);
             $('#status_update').val(data[18]);
             $('#price_update').val(data[19]);
